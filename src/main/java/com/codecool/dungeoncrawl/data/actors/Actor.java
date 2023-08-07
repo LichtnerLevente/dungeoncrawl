@@ -39,8 +39,6 @@ public abstract class Actor implements Drawable {
 
     private boolean checkIfValidTile(Cell cell) {
         if (cell.getTileName().equals("wall")) return false;
-        if (cell.getActor() != null) return false;
-
-        return true;
+        return cell.getActor() == null;
     }
 }
