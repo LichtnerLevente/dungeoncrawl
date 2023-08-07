@@ -1,4 +1,9 @@
 package com.codecool.dungeoncrawl.data;
 
-public record Item(String name) {
+public class Item {
+    private String name;
+
+    public Item(String name) {
+        this.name = name;
+    }
 }
