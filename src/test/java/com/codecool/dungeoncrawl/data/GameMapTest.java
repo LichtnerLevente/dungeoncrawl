@@ -14,10 +14,10 @@ class GameMapTest {
     @Test
     void setCell() {
         int x = 2, y = 2;
-        Cell door = new Door(map, x, y, CellType.DOOR, 2);
+        Cell door = new Door(map, x, y, CellType.DOOR, "asd", "asd");
 
 
-        map.setCell(x, y, door);
+        map.placeCell(door);
 
         System.out.println(map.getCell(x, y).getType());
         assert map.getCell(x, y).getType().equals(CellType.DOOR);

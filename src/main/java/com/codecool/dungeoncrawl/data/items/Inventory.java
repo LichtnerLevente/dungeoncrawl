@@ -5,5 +5,5 @@ import java.util.Set;
 public interface Inventory {
     Set<Key> getItems();
     void add(Key item);
-    boolean contains(String key);
+    boolean contains(String name);
 }

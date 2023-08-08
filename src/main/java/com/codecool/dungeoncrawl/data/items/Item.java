@@ -5,8 +5,11 @@ import com.codecool.dungeoncrawl.data.Drawable;
 
 public abstract class Item implements Drawable {
     private Cell cell;
-    public Item(Cell cell) {
+//    private final String name;
+
+    public Item(Cell cell/*, String name*/) {
         this.cell = cell;
+//        this.name = name;
         this.cell.setItem(this);
     }
 
@@ -21,4 +24,12 @@ public abstract class Item implements Drawable {
     public int getY() {
         return cell.getY();
     }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    @Override
+//    public String getTileName() {
+//        return name;
+//    }
 }

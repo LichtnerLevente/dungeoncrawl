@@ -4,7 +4,6 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.GameMap;
-import com.codecool.dungeoncrawl.data.items.Pickaxe;
 
 public class GameLogic {
     private GameMap map;
@@ -22,9 +21,8 @@ public class GameLogic {
     }
 
     public void setup() {
-        int x = 12, y = 3;
-        Cell door = new Door(map, x, y, CellType.DOOR, "pickaxe", "destructible_wall");
-        map.setCell(x, y, door);
+        Cell destructibleWall = new Door(map, 12, 3, CellType.DOOR, "pickaxe", "destructible_wall");
+        map.placeCell(destructibleWall);
     }
 
     public Cell getCell(int x, int y) {

@@ -23,20 +23,21 @@ public class Player extends Actor {
         if(nextCell.getType().equals(CellType.DOOR)){
             Door door = (Door) nextCell;
             if (inventory.contains(door.getKey())){
-                cell.setActor(null);
-                nextCell.setActor(this);
-                cell = nextCell;
+                moveToNextTile(nextCell);
             }
         }
         if (nextCell.getItem() != null) {
-            //itempickup
             inventory.add((Key) nextCell.getItem());
         }
         if (checkIfValidTile(nextCell)) {
-            cell.setActor(null);
-            nextCell.setActor(this);
-            cell = nextCell;
+            moveToNextTile(nextCell);
         }
+    }
+
+    private void moveToNextTile(Cell nextCell) {
+        cell.setActor(null);
+        nextCell.setActor(this);
+        cell = nextCell;
     }
 
     public String getTileName() {

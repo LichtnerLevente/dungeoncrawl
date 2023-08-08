@@ -9,6 +9,8 @@ public class InventoryImpl implements Inventory {
     public InventoryImpl(Set<Key> items) {
         this.items = items;
     }
+
+
     @Override
     public Set<Key> getItems(){
         return this.items;
@@ -17,10 +19,8 @@ public class InventoryImpl implements Inventory {
     public void add(Key item){
         items.add(item);
     }
-
-
     @Override
-    public boolean contains(String key) {
-        return items.stream().anyMatch(item->item.getName().equals(key));
+    public boolean contains(String name) {
+        return items.stream().anyMatch(item->item.getName().equals(name));
     }
 }
