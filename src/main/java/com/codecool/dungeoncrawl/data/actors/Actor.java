@@ -5,7 +5,7 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Drawable;
 
 public abstract class Actor implements Drawable {
-    private Cell cell;
+    Cell cell;
     private int health = 10;
 
     public Actor(Cell cell) {
@@ -15,9 +15,6 @@ public abstract class Actor implements Drawable {
 
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        if (nextCell.getItem() != null){
-            //itempickup
-        }
         if (checkIfValidTile(nextCell)) {
             cell.setActor(null);
             nextCell.setActor(this);

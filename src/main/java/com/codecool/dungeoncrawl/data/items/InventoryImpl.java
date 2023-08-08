@@ -4,23 +4,23 @@ import java.util.Set;
 
 public class InventoryImpl implements Inventory {
 
-    private final Set<Item> items;
+    private final Set<Key> items;
 
-    public InventoryImpl(Set<Item> items) {
+    public InventoryImpl(Set<Key> items) {
         this.items = items;
     }
     @Override
-    public Set<Item> getItems(){
+    public Set<Key> getItems(){
         return this.items;
     }
     @Override
-    public void addItem(Item item){
+    public void add(Key item){
         items.add(item);
     }
 
 
     @Override
-    public boolean containsItem(Item item) {
-        return items.contains(item);
+    public boolean contains(String key) {
+        return items.stream().anyMatch(item->item.getName().equals(key));
     }
 }
