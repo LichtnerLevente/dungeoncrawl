@@ -13,7 +13,12 @@ public abstract class Actor implements Drawable {
     }
 
     public void move(int dx, int dy) {
+
         Cell nextCell = cell.getNeighbor(dx, dy);
+        if (nextCell.getActor() != null) {
+            System.out.println(nextCell.getActor().getTileName());
+
+        }
         if (checkIfValidTile(nextCell)) {
             cell.setActor(null);
             nextCell.setActor(this);
