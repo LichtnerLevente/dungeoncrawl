@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl.data.actors;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Drawable;
 
 public abstract class Actor implements Drawable {
@@ -41,7 +42,7 @@ public abstract class Actor implements Drawable {
     }
 
     private boolean checkIfValidTile(Cell cell) {
-        if (cell.getTileName().equals("wall") || cell.getTileName().equals("door")) return false;
+        if (cell.getTileName().equals("wall") || cell.getType().equals(CellType.DOOR)) return false;
         return cell.getActor() == null;
     }
 }

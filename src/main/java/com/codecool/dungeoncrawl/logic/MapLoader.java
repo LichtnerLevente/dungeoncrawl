@@ -7,6 +7,7 @@ import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.actors.Skeleton;
 import com.codecool.dungeoncrawl.data.items.Crown;
 import com.codecool.dungeoncrawl.data.items.DestructibleWall;
+import com.codecool.dungeoncrawl.data.items.Key;
 import com.codecool.dungeoncrawl.data.items.Pickaxe;
 
 
@@ -49,11 +50,12 @@ public class MapLoader {
                             break;
                         case 'w':
                             cell.setType(CellType.FLOOR);
-                            new DestructibleWall(cell);
+//                            new DestructibleWall(cell);
                             break;
                         case 'p':
                             cell.setType(CellType.FLOOR);
-                            new Pickaxe(cell);
+//                            new Pickaxe(cell);
+                            new Key(cell, "pickaxe");
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);

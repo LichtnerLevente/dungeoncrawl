@@ -1,11 +1,20 @@
 package com.codecool.dungeoncrawl.data;
 
-public class Door extends Cell {
-    private int id;
+import com.codecool.dungeoncrawl.data.items.Item;
 
-    public Door(GameMap gameMap, int x, int y, CellType type, int id) {
+public class Door extends Cell {
+    private final String key;
+    private final String name;
+
+    public Door(GameMap gameMap, int x, int y, CellType type, String key, String name) {
         super(gameMap, x, y, type);
-        this.id = id;
+        this.key = key;
+        this.name = name;
     }
-    public int getId(){ return this.id; }
+    public String getKey(){ return this.key; }
+
+    @Override
+    public String getTileName() {
+        return this.name;
+    }
 }

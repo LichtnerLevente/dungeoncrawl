@@ -1,17 +1,16 @@
 package com.codecool.dungeoncrawl.data.items;
 
-
-import java.util.List;
+import java.util.Set;
 
 public class InventoryImpl implements Inventory {
 
-    private final List<Item> items;
+    private final Set<Item> items;
 
-    public InventoryImpl(List<Item> items) {
+    public InventoryImpl(Set<Item> items) {
         this.items = items;
     }
     @Override
-    public List<Item> getItems(){
+    public Set<Item> getItems(){
         return this.items;
     }
     @Override
@@ -21,7 +20,7 @@ public class InventoryImpl implements Inventory {
 
 
     @Override
-    public boolean containsItem(String name) {
-       return items.stream().anyMatch(item -> item.getName() == name);
+    public boolean containsItem(Item item) {
+        return items.contains(item);
     }
 }
