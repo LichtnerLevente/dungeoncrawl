@@ -4,6 +4,7 @@ import com.codecool.dungeoncrawl.data.actors.Actor;
 import com.codecool.dungeoncrawl.data.actors.Cow;
 import com.codecool.dungeoncrawl.data.actors.Player;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class GameMap {
@@ -12,6 +13,14 @@ public class GameMap {
     private Cell[][] cells;
     private Player player;
     private Cow cow;
+    private Set<Actor> monsters = new HashSet<>();
+
+    public void addMonster(Actor actor) {
+        monsters.add(actor);
+    }
+    public void removeMonster(Actor actor) {
+        monsters.remove(actor);
+    }
 
     public GameMap(int width, int height, CellType defaultCellType) {
         this.width = width;

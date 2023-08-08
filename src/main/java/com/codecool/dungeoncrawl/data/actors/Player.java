@@ -33,6 +33,7 @@ public class Player extends Actor {
             health = health - 2;
             System.out.println(monster.getHealth());
         } else {
+            cell.getGameMap().removeMonster(monster);
             cell.setActor(null);
         }
     }

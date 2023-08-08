@@ -48,7 +48,7 @@ public class MapLoader {
                             break;
                         case 'c':
                             cell.setType(CellType.FLOOR);
-                            map.setCow(new Cow(cell));
+                            map.addMonster(new Cow(cell));
                             break;
                         case 'e':
                             cell.setType(CellType.FLOOR);
