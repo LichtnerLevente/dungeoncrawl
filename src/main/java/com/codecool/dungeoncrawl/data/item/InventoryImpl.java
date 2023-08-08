@@ -22,7 +22,7 @@ public class InventoryImpl implements Inventory {
 
 
     @Override
-    public boolean containsItem(int id) {
-       return items.stream().anyMatch(item -> item.getId() == id);
+    public boolean containsItem(String name) {
+       return items.stream().anyMatch(item -> item.getName() == name);
     }
 }
