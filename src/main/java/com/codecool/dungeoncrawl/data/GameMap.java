@@ -1,13 +1,17 @@
 package com.codecool.dungeoncrawl.data;
 
+import com.codecool.dungeoncrawl.data.actors.Actor;
+import com.codecool.dungeoncrawl.data.actors.Cow;
 import com.codecool.dungeoncrawl.data.actors.Player;
+
+import java.util.Set;
 
 public class GameMap {
     private int width;
     private int height;
     private Cell[][] cells;
-
     private Player player;
+    private Cow cow;
 
     public GameMap(int width, int height, CellType defaultCellType) {
         this.width = width;
@@ -28,9 +32,13 @@ public class GameMap {
         this.player = player;
     }
 
+    public void setCow(Cow cow) {this.cow = cow;}
+
     public Player getPlayer() {
         return player;
     }
+
+    public Cow getCow() { return cow; }
 
     public int getWidth() {
         return width;

@@ -3,14 +3,18 @@ package com.codecool.dungeoncrawl.ui;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
+import com.codecool.dungeoncrawl.ui.keyeventhandler.Down;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 public class UI {
@@ -44,6 +48,8 @@ public class UI {
         for (KeyHandler keyHandler : keyHandlers) {
             keyHandler.perform(keyEvent, logic.getMap());
         }
+        //logic.getMap().getCow().move(1, 1);
+
         refresh();
     }
 

@@ -4,8 +4,9 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.Drawable;
 
 public abstract class Actor implements Drawable {
-    private Cell cell;
-    private int health = 10;
+    Cell cell;
+
+    int health;
 
     public Actor(Cell cell) {
         this.cell = cell;
@@ -14,9 +15,6 @@ public abstract class Actor implements Drawable {
 
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        if (nextCell.getActor() != null) {
-            attackingMonster(nextCell, nextCell.getActor());
-        }
         if (checkIfValidTile(nextCell)) {
             cell.setActor(null);
             nextCell.setActor(this);
@@ -24,21 +22,7 @@ public abstract class Actor implements Drawable {
         }
     }
 
-    public void attackingMonster(Cell cell, Actor monster) {
-        int monsterNewHealth = monster.getHealth() - 5;
 
-        System.out.println("Monster's starting health: " + monster.getHealth());
-        System.out.println("Monster's new health: " + monsterNewHealth);
-        System.out.println("Monster's type: " + monster.getTileName());
-
-        if (monsterNewHealth > 0) {
-            monster.setHealth(monsterNewHealth);
-            health = health - 2;
-            System.out.println(monster.getHealth());
-        } else {
-            cell.setActor(null);
-        }
-    }
 
     public int getHealth() {
         return health;
@@ -60,7 +44,7 @@ public abstract class Actor implements Drawable {
         return cell.getY();
     }
 
-    private boolean checkIfValidTile(Cell cell) {
+    boolean checkIfValidTile(Cell cell) {
         if (cell.getTileName().equals("wall")) return false;
         if (cell.getActor() != null) return false;
 

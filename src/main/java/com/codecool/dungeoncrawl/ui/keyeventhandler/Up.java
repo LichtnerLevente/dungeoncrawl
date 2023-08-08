@@ -4,12 +4,20 @@ import com.codecool.dungeoncrawl.data.GameMap;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import java.util.Random;
+
 public class Up implements KeyHandler {
     public static final KeyCode code = KeyCode.UP;
 
     @Override
     public void perform(KeyEvent event, GameMap map) {
-        if(code.equals(event.getCode()))
+        if(code.equals(event.getCode())) {
             map.getPlayer().move(0, -1);
+
+            Random random = new Random();
+            int randomX = random.nextInt(3) - 1;
+            int randomY = random.nextInt(3) - 1;
+            map.getCow().move(randomX,randomY);
+        }
     }
 }
