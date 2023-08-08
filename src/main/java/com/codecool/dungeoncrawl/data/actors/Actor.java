@@ -13,11 +13,9 @@ public abstract class Actor implements Drawable {
     }
 
     public void move(int dx, int dy) {
-
         Cell nextCell = cell.getNeighbor(dx, dy);
         if (nextCell.getActor() != null) {
-            System.out.println(nextCell.getActor().getTileName());
-
+            attackingMonster(nextCell, nextCell.getActor());
         }
         if (checkIfValidTile(nextCell)) {
             cell.setActor(null);
@@ -26,8 +24,28 @@ public abstract class Actor implements Drawable {
         }
     }
 
+    public void attackingMonster(Cell cell, Actor monster) {
+        int monsterNewHealth = monster.getHealth() - 5;
+
+        System.out.println("Monster's starting health: " + monster.getHealth());
+        System.out.println("Monster's new health: " + monsterNewHealth);
+        System.out.println("Monster's type: " + monster.getTileName());
+
+        if (monsterNewHealth > 0) {
+            monster.setHealth(monsterNewHealth);
+            health = health - 2;
+            System.out.println(monster.getHealth());
+        } else {
+            cell.setActor(null);
+        }
+    }
+
     public int getHealth() {
         return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public Cell getCell() {
