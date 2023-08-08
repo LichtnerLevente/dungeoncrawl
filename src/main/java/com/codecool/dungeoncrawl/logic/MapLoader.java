@@ -5,6 +5,10 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.actors.Skeleton;
+import com.codecool.dungeoncrawl.data.items.Crown;
+import com.codecool.dungeoncrawl.data.items.DestructibleWall;
+import com.codecool.dungeoncrawl.data.items.Pickaxe;
+
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -38,6 +42,18 @@ public class MapLoader {
                         case 's':
                             cell.setType(CellType.FLOOR);
                             new Skeleton(cell);
+                            break;
+                        case 'k':
+                            cell.setType(CellType.FLOOR);
+                            new Crown(cell);
+                            break;
+                        case 'w':
+                            cell.setType(CellType.FLOOR);
+                            new DestructibleWall(cell);
+                            break;
+                        case 'p':
+                            cell.setType(CellType.FLOOR);
+                            new Pickaxe(cell);
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);

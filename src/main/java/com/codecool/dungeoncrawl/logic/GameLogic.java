@@ -21,9 +21,9 @@ public class GameLogic {
     }
 
     public void setup() {
-        int x = 12, y = 3;
-        Cell door = new Door(map, x, y, CellType.DOOR, 1);
-        map.setCell(x, y, door);
+//        int x = 12, y = 3;
+//        Cell door = new Door(map, x, y, CellType.DOOR, 1);
+//        map.setCell(x, y, door);
     }
 
     public Cell getCell(int x, int y) {
