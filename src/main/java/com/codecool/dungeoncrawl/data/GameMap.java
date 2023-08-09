@@ -23,6 +23,7 @@ public class GameMap {
     public Cell getCell(int x, int y) {
         return cells[x][y];
     }
+
     public void placeCell(Cell cell){
         this.cells[cell.getX()][cell.getY()] = cell;
     }

@@ -2,6 +2,7 @@ package com.codecool.dungeoncrawl.logic;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
+import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.actors.Skeleton;
@@ -49,12 +50,11 @@ public class MapLoader {
                             new Crown(cell);
                             break;
                         case 'w':
-                            cell.setType(CellType.FLOOR);
-//                            new DestructibleWall(cell);
+                            Door destructibleWall = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "pickaxe", "destructible_wall");
+                            map.placeCell(destructibleWall);
                             break;
                         case 'p':
                             cell.setType(CellType.FLOOR);
-//                            new Pickaxe(cell);
                             new Key(cell, "pickaxe");
                             break;
                         case '@':

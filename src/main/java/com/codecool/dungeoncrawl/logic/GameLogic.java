@@ -21,8 +21,8 @@ public class GameLogic {
     }
 
     public void setup() {
-        Cell destructibleWall = new Door(map, 12, 3, CellType.DOOR, "pickaxe", "destructible_wall");
-        map.placeCell(destructibleWall);
+//        Cell destructibleWall = new Door(map, 12, 3, CellType.DOOR, "pickaxe", "destructible_wall");
+//        map.placeCell(destructibleWall);
     }
 
     public Cell getCell(int x, int y) {
