@@ -12,6 +12,7 @@ import java.util.HashSet;
 public class Player extends Actor {
 
     private final Inventory inventory = new InventoryImpl(new HashSet<>());
+    static int [] prevCoord = new int[2];
 
     public Player(Cell cell) {
         super(cell);
@@ -34,6 +35,8 @@ public class Player extends Actor {
             pickUpItem(nextCell);
         }
         if (checkIfValidTile(nextCell)) {
+            prevCoord[0] = cell.getX();
+            prevCoord[1] = cell.getY();
             moveToNextTile(nextCell);
         }
     }
@@ -72,5 +75,9 @@ public class Player extends Actor {
         } else {
             cell.setActor(null);
         }
+    }
+
+    public static int[] getPrevCoord() {
+        return prevCoord;
     }
 }

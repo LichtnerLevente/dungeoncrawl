@@ -22,7 +22,7 @@ public class Dog extends Actor {
 
 
     public void moveDog() {
-        Cell nextCell = cell.getCell(prevCoord[0], prevCoord[1]);
+        Cell nextCell = cell.getCell(Player.getPrevCoord()[0], Player.getPrevCoord()[1]);
         if(nextCell.getActor() !=null) {
             System.out.println("actor");
             setShouldMove(true);
