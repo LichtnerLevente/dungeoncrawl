@@ -32,4 +32,9 @@ public abstract class Item implements Drawable {
     public String getTileName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
