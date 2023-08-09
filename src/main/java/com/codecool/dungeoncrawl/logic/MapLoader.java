@@ -6,6 +6,7 @@ import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.*;
 import com.codecool.dungeoncrawl.data.items.Key;
+import com.codecool.dungeoncrawl.data.items.Shield;
 
 
 import java.io.InputStream;
@@ -52,6 +53,10 @@ public class MapLoader {
                         case 'p':
                             cell.setType(CellType.FLOOR);
                             new Key(cell, "pickaxe");
+                            break;
+                        case 'h':
+                            cell.setType(CellType.FLOOR);
+                            new Shield(cell, "shield");
                             break;
                         case 'd':
                             cell.setType(CellType.FLOOR);
