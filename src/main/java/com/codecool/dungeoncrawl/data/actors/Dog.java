@@ -16,13 +16,17 @@ public class Dog extends Actor {
         return "dog";
     }
 
-    public void changeShouldMove(boolean bool) {
+    void setShouldMove(boolean bool) {
         this.shouldMove = bool;
     }
 
 
     public void moveDog() {
         Cell nextCell = cell.getCell(prevCoord[0], prevCoord[1]);
+        if(nextCell.getActor() !=null) {
+            System.out.println("actor");
+            setShouldMove(true);
+        }
         if (shouldMove) {
             cell.setActor(null);
             nextCell.setActor(this);
