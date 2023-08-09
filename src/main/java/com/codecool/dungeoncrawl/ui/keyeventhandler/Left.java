@@ -13,6 +13,7 @@ public class Left implements KeyHandler {
             map.getPlayer().move(-1, 0);
             map.getDog().moveDog();
             map.getCow().moveCow();
+            map.getOctopus().moveOctopus();
         }
     }
 }
