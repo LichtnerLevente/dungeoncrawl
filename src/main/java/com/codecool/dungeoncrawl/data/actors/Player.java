@@ -5,6 +5,7 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.items.Inventory;
 import com.codecool.dungeoncrawl.data.items.InventoryImpl;
+import com.codecool.dungeoncrawl.data.items.Item;
 
 
 import java.util.HashSet;
@@ -94,5 +95,9 @@ public class Player extends Actor {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 }
