@@ -1,5 +1,6 @@
 package com.codecool.dungeoncrawl.data;
 
+import com.codecool.dungeoncrawl.data.actors.Cow;
 import com.codecool.dungeoncrawl.data.actors.Dog;
 import com.codecool.dungeoncrawl.data.actors.Player;
 
@@ -11,6 +12,8 @@ public class GameMap {
     private Player player;
 
     private Dog dog;
+
+    private Cow cow;
 
     public GameMap(int width, int height, CellType defaultCellType) {
         this.width = width;
@@ -53,5 +56,13 @@ public class GameMap {
 
     public void setDog(Dog dog) {
         this.dog = dog;
+    }
+
+    public Cow getCow() {
+        return cow;
+    }
+
+    public void setCow(Cow cow) {
+        this.cow = cow;
     }
 }

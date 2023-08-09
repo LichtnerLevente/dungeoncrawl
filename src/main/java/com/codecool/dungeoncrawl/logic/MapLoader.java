@@ -4,6 +4,7 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.GameMap;
+import com.codecool.dungeoncrawl.data.actors.Cow;
 import com.codecool.dungeoncrawl.data.actors.Dog;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.actors.Skeleton;
@@ -58,6 +59,10 @@ public class MapLoader {
                         case 'd':
                             cell.setType(CellType.FLOOR);
                             map.setDog(new Dog(cell));
+                            break;
+                        case 'c':
+                            cell.setType(CellType.FLOOR);
+                            map.setCow(new Cow(cell));
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);
