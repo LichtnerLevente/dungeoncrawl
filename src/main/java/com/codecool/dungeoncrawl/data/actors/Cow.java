@@ -2,12 +2,14 @@ package com.codecool.dungeoncrawl.data.actors;
 
 import com.codecool.dungeoncrawl.data.Cell;
 
-public class Skeleton extends Actor {
-    private int health = 5;
+import java.util.Random;
 
-    private int damage = 2;
+public class Cow extends Actor{
+    private int health = 15;
 
-    public Skeleton(Cell cell) {
+    private int damage = 5;
+
+    public Cow(Cell cell) {
         super(cell);
     }
 
@@ -25,8 +27,15 @@ public class Skeleton extends Actor {
         return damage;
     }
 
+    public void moveCow() {
+        Random random = new Random();
+        int randomDx = random.nextInt(3) -1;
+        int randomDy = random.nextInt(3) -1;
+        super.move(randomDx, randomDy);
+    }
+
     @Override
     public String getTileName() {
-        return "skeleton";
+        return "cow";
     }
 }
