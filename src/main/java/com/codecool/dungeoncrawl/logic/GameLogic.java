@@ -33,7 +33,7 @@ public class GameLogic {
     }
 
     public String getInventoryItems() {
-        return map.getPlayer().getInventory().toString();
+        return map.getPlayer().getInventory().getItems().toString();
     }
 
 
