@@ -6,7 +6,6 @@ import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.actors.Skeleton;
-import com.codecool.dungeoncrawl.data.items.Crown;
 import com.codecool.dungeoncrawl.data.items.Key;
 
 
@@ -45,7 +44,7 @@ public class MapLoader {
                             break;
                         case 'k':
                             cell.setType(CellType.FLOOR);
-                            new Crown(cell);
+                            new Key(cell, "crown");
                             break;
                         case 'w':
                             Door destructibleWall = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "pickaxe", "destructible_wall");

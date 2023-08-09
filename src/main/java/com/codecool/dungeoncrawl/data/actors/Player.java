@@ -3,6 +3,7 @@ package com.codecool.dungeoncrawl.data.actors;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
+import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.items.Inventory;
 import com.codecool.dungeoncrawl.data.items.InventoryImpl;
 import com.codecool.dungeoncrawl.data.items.Key;
@@ -46,6 +47,9 @@ public class Player extends Actor {
         inventory.add((Key) cell.getItem());
         cell.setItem(null);
 
+    }
+    private void openDoor(Door door){
+        door.setName("floor");
     }
     private boolean checkIfValidTile(Cell cell) {
         if (cell.getTileName().equals("wall") || cell.getType().equals(CellType.DOOR)) return false;
