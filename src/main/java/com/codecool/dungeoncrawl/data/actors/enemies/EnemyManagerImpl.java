@@ -11,16 +11,19 @@ public class EnemyManagerImpl implements EnemyManager{
     public EnemyManagerImpl(Set<Enemy> enemies) {
         this.enemies = enemies;
     }
+    @Override
     public void addEnemy(Enemy enemy){
         enemies.add(enemy);
     }
+    @Override
     public Enemy getEnemy(String name){
       for(Enemy enemy : enemies){
           if(enemy.getName().equals(name)) return enemy;
       }
       return null;
     }
-    void removeEnemy(String name){
+    @Override
+    public void removeEnemy(String name){
         enemies.removeIf(enemy -> enemy.getName().equals(name));
     }
 
