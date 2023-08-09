@@ -4,19 +4,19 @@ import java.util.Set;
 
 public class InventoryImpl implements Inventory {
 
-    private final Set<Key> items;
+    private final Set<Item> items;
 
-    public InventoryImpl(Set<Key> items) {
+    public InventoryImpl(Set<Item> items) {
         this.items = items;
     }
 
 
     @Override
-    public Set<Key> getItems(){
+    public Set<Item> getItems(){
         return this.items;
     }
     @Override
-    public void add(Key item){
+    public void add(Item item){
         items.add(item);
     }
     @Override

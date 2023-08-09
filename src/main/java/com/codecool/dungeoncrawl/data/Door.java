@@ -12,11 +12,15 @@ public class Door extends Cell {
     }
     public String getKey(){ return this.key; }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
     @Override
     public String getTileName() {
         return this.name;
     }
+    public void setToOpen(){
+        this.setName("floor");
+    }
 }
+
