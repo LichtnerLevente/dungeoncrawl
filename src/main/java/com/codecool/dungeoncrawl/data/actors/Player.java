@@ -5,7 +5,6 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.items.Inventory;
 import com.codecool.dungeoncrawl.data.items.InventoryImpl;
-import com.codecool.dungeoncrawl.data.items.Item;
 
 
 import java.util.HashSet;
@@ -55,8 +54,10 @@ public class Player extends Actor {
 
     private void  pickUpItem(Cell cell){
         inventory.add(cell.getItem());
+        if (cell.getItem().getName().equals("shield")) {
+            setHealth(health *= 2);
+        }
         cell.setItem(null);
-
     }
 
     public void attackingMonster(Cell cell, Actor monster) {
