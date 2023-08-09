@@ -2,10 +2,13 @@ package com.codecool.dungeoncrawl.logic;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
+import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.Lock;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.actors.Skeleton;
+import com.codecool.dungeoncrawl.data.items.Key;
+
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -39,6 +42,18 @@ public class MapLoader {
                         case 's':
                             cell.setType(CellType.FLOOR);
                             new Skeleton(cell);
+                            break;
+                        case 'k':
+                            cell.setType(CellType.FLOOR);
+                            new Key(cell, "crown");
+                            break;
+                        case 'w':
+                            Door destructibleWall = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "pickaxe", "destructible_wall");
+                            map.placeCell(destructibleWall);
+                            break;
+                        case 'p':
+                            cell.setType(CellType.FLOOR);
+                            new Key(cell, "pickaxe");
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);

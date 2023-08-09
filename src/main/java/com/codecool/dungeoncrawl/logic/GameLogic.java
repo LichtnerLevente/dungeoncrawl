@@ -4,7 +4,7 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.GameMap;
 
 public class GameLogic {
-    private GameMap map;
+    private final GameMap map;
 
     public GameLogic() {
         this.map = MapLoader.loadMap();
