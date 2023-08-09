@@ -24,6 +24,7 @@ public class Player extends Actor {
         if(nextCell.getType().equals(CellType.DOOR)){
             Door door = (Door) nextCell;
             if (inventory.contains(door.getKey())){
+                openDoor(door);
                 moveToNextTile(nextCell);
             }
         }
