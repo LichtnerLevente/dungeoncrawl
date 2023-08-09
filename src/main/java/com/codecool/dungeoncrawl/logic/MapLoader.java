@@ -53,6 +53,10 @@ public class MapLoader {
                             cell.setType(CellType.FLOOR);
                             new Key(cell, "pickaxe");
                             break;
+                        case 'r':
+                            cell.setType(CellType.FLOOR);
+                            new Key(cell, "sword");
+                            break;
                         case 'd':
                             cell.setType(CellType.FLOOR);
                             map.setDog(new Dog(cell));
