@@ -7,9 +7,7 @@ import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.actors.Skeleton;
 import com.codecool.dungeoncrawl.data.items.Crown;
-import com.codecool.dungeoncrawl.data.items.DestructibleWall;
 import com.codecool.dungeoncrawl.data.items.Key;
-import com.codecool.dungeoncrawl.data.items.Pickaxe;
 
 
 import java.io.InputStream;

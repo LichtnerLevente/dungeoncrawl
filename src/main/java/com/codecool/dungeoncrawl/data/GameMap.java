@@ -3,9 +3,9 @@ package com.codecool.dungeoncrawl.data;
 import com.codecool.dungeoncrawl.data.actors.Player;
 
 public class GameMap {
-    private int width;
-    private int height;
-    private Cell[][] cells;
+    private final int width;
+    private final int height;
+    private final Cell[][] cells;
 
     private Player player;
 
