@@ -27,10 +27,6 @@ public class Cow extends Actor{
         return damage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     public void moveCow() {
         Random random = new Random();
         int randomDx = random.nextInt(3) -1;

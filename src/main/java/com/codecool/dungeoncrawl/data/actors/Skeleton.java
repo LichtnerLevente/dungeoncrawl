@@ -5,6 +5,8 @@ import com.codecool.dungeoncrawl.data.Cell;
 public class Skeleton extends Actor {
     private int health = 5;
 
+    private int damage = 2;
+
     public Skeleton(Cell cell) {
         super(cell);
     }
@@ -17,6 +19,10 @@ public class Skeleton extends Actor {
     @Override
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 
     @Override
