@@ -27,7 +27,7 @@ public class Player extends Actor {
         if(nextCell.getType().equals(CellType.DOOR)){
             Door door = (Door) nextCell;
             if (inventory.contains(door.getKey())){
-                openDoor(door);
+                door.setToOpen();
                 moveToNextTile(nextCell);
             }
         }
@@ -54,9 +54,7 @@ public class Player extends Actor {
         cell.setItem(null);
 
     }
-    private void openDoor(Door door){
-        door.setName("floor");
-    }
+
     private boolean checkIfValidTile(Cell cell) {
         if (cell.getTileName().equals("wall") || cell.getType().equals(CellType.DOOR)) return false;
         return cell.getActor() == null;
