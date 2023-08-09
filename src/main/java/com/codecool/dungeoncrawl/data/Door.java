@@ -1,7 +1,5 @@
 package com.codecool.dungeoncrawl.data;
 
-import com.codecool.dungeoncrawl.data.items.Item;
-
 public class Door extends Cell {
     private final String key;
     private final String name;

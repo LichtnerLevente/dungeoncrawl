@@ -27,21 +27,25 @@ public class Player extends Actor {
             }
         }
         if (nextCell.getItem() != null) {
-            inventory.add((Key) nextCell.getItem());
+            pickUpItem(nextCell);
         }
         if (checkIfValidTile(nextCell)) {
             moveToNextTile(nextCell);
         }
     }
 
+    public String getTileName() {
+        return "player";
+    }
     private void moveToNextTile(Cell nextCell) {
         cell.setActor(null);
         nextCell.setActor(this);
         cell = nextCell;
     }
+    private void  pickUpItem(Cell cell){
+        inventory.add((Key) cell.getItem());
+        cell.setItem(null);
 
-    public String getTileName() {
-        return "player";
     }
     private boolean checkIfValidTile(Cell cell) {
         if (cell.getTileName().equals("wall") || cell.getType().equals(CellType.DOOR)) return false;
