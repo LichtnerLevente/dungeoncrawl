@@ -18,6 +18,8 @@ public class StatusPane {
     private Label inventoryTextLabel;
     private Label inventoryValueLabel;
 
+    private Label gameOverTextLabel;
+
     public StatusPane() {
         ui = new GridPane();
 
@@ -46,6 +48,11 @@ public class StatusPane {
         inventoryValueLabel = new Label();
         inventoryValueLabel.setFont(new Font("Verdana", 15));
         inventoryValueLabel.setStyle("-fx-text-fill: rgb(207, 198, 184);");
+
+        gameOverTextLabel = new Label("YOU DIED");
+        gameOverTextLabel.setFont(new Font("Verdana", 30));
+        gameOverTextLabel.setStyle("-fx-text-fill: rgb(207, 198, 184);-fx-text-alignment: center;");
+        gameOverTextLabel.setVisible(false);
     }
 
     public BorderPane build() {
@@ -62,19 +69,25 @@ public class StatusPane {
         ui.add(inventoryTextLabel, 0, 2);
         ui.add(inventoryValueLabel, 1, 2);
 
+        ui.add(gameOverTextLabel, 0,3);
+
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(ui);
         return borderPane;
     }
 
+    public Label getGameOverTextLabel() {
+        return gameOverTextLabel;
+    }
+
     public void setHealthValue(String text) {
         healthValueLabel.setText(text);
     }
-
     public void setDamageValue(String text) {
         damageValueLabel.setText(text);
     }
     public void setInventoryValueLabel(String text) {
         inventoryValueLabel.setText(text);
     }
+
 }

@@ -4,6 +4,7 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.items.Item;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
+import com.codecool.dungeoncrawl.ui.elements.StatusPane;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -17,8 +18,8 @@ import java.util.Set;
 public class UI {
     private Canvas canvas;
     private GraphicsContext context;
-
     private MainStage mainStage;
+    private StatusPane statusPane;
     private GameLogic logic;
     private Set<KeyHandler> keyHandlers;
 
@@ -30,6 +31,7 @@ public class UI {
         this.logic = logic;
         this.context = canvas.getGraphicsContext2D();
         this.mainStage = new MainStage(canvas);
+        this.statusPane = new StatusPane();
         this.keyHandlers = keyHandlers;
     }
 
@@ -63,8 +65,14 @@ public class UI {
                 }
             }
         }
+        int playerHealth = Integer.parseInt(logic.getPlayerHealth());
+        if (playerHealth >= 0) {
             mainStage.setHealthLabelText(logic.getPlayerHealth());
             mainStage.setDamageLabelText(logic.getPlayerDamage());
             mainStage.setInventoryLabelText(logic.getInventoryItems());
+            statusPane.getGameOverTextLabel().setVisible(false);
+        } else {
+            statusPane.getGameOverTextLabel().setVisible(true);
+        }
     }
 }
