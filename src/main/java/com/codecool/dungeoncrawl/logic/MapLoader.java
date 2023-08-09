@@ -72,7 +72,7 @@ public class MapLoader {
                             break;
                         case 'o':
                             cell.setType(CellType.FLOOR);
-                            map.setOctopus(new Octopus(cell, "octopus"));
+                            map.enemyManager.addEnemy(new Octopus(cell, "octopus"));
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);

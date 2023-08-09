@@ -13,8 +13,6 @@ public class Down implements KeyHandler {
             map.getPlayer().move(0, 1);
             map.getDog().moveDog();
             map.enemyManager.moveEnemies();
-//            map.getCow().move();
-            map.getOctopus().moveOctopus();
         }
     }
 }

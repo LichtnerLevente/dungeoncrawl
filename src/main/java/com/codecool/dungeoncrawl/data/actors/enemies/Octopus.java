@@ -26,7 +26,8 @@ public class Octopus extends Enemy {
         return damage;
     }
 
-    public void moveOctopus() {
+    @Override
+    public void move() {
         Random random = new Random();
         int randomDx = random.nextInt(3) -1;
         int randomDy = random.nextInt(3) -1;
