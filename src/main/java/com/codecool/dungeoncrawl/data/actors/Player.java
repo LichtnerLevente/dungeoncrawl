@@ -40,6 +40,9 @@ public class Player extends Actor {
         }
         if (nextCell.getItem() != null) {
             pickUpItem(nextCell);
+            if (inventory.contains("sword")) {
+                setDamage(1000);
+            }
         }
         if (checkIfValidTile(nextCell)) {
             prevCoord[0] = cell.getX();
