@@ -46,7 +46,7 @@ public class Player extends Actor {
     }
 
     private void  pickUpItem(Cell cell){
-        inventory.add((Key) cell.getItem());
+        inventory.add(cell.getItem());
         cell.setItem(null);
 
     }
