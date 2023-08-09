@@ -1,12 +1,14 @@
 package com.codecool.dungeoncrawl.data.actors;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Drawable;
 
 public abstract class Actor implements Drawable {
     Cell cell;
     static int [] prevCoord = new int[2];
-    private int health = 10;
+    int health = 10;
+
 
     public Actor(Cell cell) {
         this.cell = cell;
@@ -15,9 +17,6 @@ public abstract class Actor implements Drawable {
 
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        if (nextCell.getItem() != null) {
-            //itempickup
-        }
         if (checkIfValidTile(nextCell)) {
             cell.setActor(null);
             prevCoord[0] = cell.getX();
@@ -32,8 +31,14 @@ public abstract class Actor implements Drawable {
 //        System.out.println(getY());
     }
 
+
+
     public int getHealth() {
         return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public Cell getCell() {
@@ -49,7 +54,7 @@ public abstract class Actor implements Drawable {
     }
 
     private boolean checkIfValidTile(Cell cell) {
-        if (cell.getTileName().equals("wall") || cell.getTileName().equals("door")) return false;
+        if (cell.getTileName().equals("wall") || cell.getType().equals(CellType.DOOR)) return false;
         return cell.getActor() == null;
     }
 }

@@ -1,12 +1,10 @@
 package com.codecool.dungeoncrawl.logic;
 
 import com.codecool.dungeoncrawl.data.Cell;
-import com.codecool.dungeoncrawl.data.CellType;
-import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.GameMap;
 
 public class GameLogic {
-    private GameMap map;
+    private final GameMap map;
 
     public GameLogic() {
         this.map = MapLoader.loadMap();
@@ -21,9 +19,6 @@ public class GameLogic {
     }
 
     public void setup() {
-//        int x = 12, y = 3;
-//        Cell door = new Door(map, x, y, CellType.DOOR, 1);
-//        map.setCell(x, y, door);
     }
 
     public Cell getCell(int x, int y) {
