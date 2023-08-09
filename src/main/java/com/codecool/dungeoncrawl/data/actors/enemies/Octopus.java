@@ -1,16 +1,15 @@
-package com.codecool.dungeoncrawl.data.actors;
+package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
-
 import java.util.Random;
 
-public class Cow extends Actor{
-    private int health = 15;
+public class Octopus extends Enemy {
+    private int health = 20;
 
-    private int damage = 5;
+    private int damage = 9;
 
-    public Cow(Cell cell) {
-        super(cell);
+    public Octopus(Cell cell, String name) {
+        super(cell, name);
     }
 
     @Override
@@ -27,15 +26,11 @@ public class Cow extends Actor{
         return damage;
     }
 
-    public void moveCow() {
+    public void moveOctopus() {
         Random random = new Random();
         int randomDx = random.nextInt(3) -1;
         int randomDy = random.nextInt(3) -1;
         super.move(randomDx, randomDy);
     }
-
-    @Override
-    public String getTileName() {
-        return "cow";
-    }
 }
+

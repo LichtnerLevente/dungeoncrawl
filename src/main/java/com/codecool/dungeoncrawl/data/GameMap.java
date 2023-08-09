@@ -1,8 +1,8 @@
 package com.codecool.dungeoncrawl.data;
 
-import com.codecool.dungeoncrawl.data.actors.Cow;
+import com.codecool.dungeoncrawl.data.actors.enemies.Cow;
 import com.codecool.dungeoncrawl.data.actors.Dog;
-import com.codecool.dungeoncrawl.data.actors.Octopus;
+import com.codecool.dungeoncrawl.data.actors.enemies.Octopus;
 import com.codecool.dungeoncrawl.data.actors.Player;
 
 public class GameMap {
