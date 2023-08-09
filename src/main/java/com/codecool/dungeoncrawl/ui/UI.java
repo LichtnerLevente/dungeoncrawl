@@ -63,8 +63,8 @@ public class UI {
                 }
             }
         }
-        mainStage.setHealthLabelText(logic.getPlayerHealth());
-        mainStage.setDamageLabelText(logic.getPlayerDamage());
-        mainStage.setInventoryLabelText(logic.getInventoryItems());
+            mainStage.setHealthLabelText(logic.getPlayerHealth());
+            mainStage.setDamageLabelText(logic.getPlayerDamage());
+            mainStage.setInventoryLabelText(logic.getInventoryItems());
     }
 }
