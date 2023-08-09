@@ -1,8 +1,8 @@
-package com.codecool.dungeoncrawl.data.actors.enemies;
+package com.codecool.dungeoncrawl.data.actors.npcs;
 
 import com.codecool.dungeoncrawl.data.Cell;
 
-public class Skeleton extends Enemy {
+public class Skeleton extends NPC {
     private int health = 5;
 
     private int damage = 2;

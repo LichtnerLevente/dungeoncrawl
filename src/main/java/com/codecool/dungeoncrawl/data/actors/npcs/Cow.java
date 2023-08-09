@@ -1,10 +1,10 @@
-package com.codecool.dungeoncrawl.data.actors.enemies;
+package com.codecool.dungeoncrawl.data.actors.npcs;
 
 import com.codecool.dungeoncrawl.data.Cell;
 
 import java.util.Random;
 
-public class Cow extends Enemy {
+public class Cow extends NPC {
     private int health = 15;
 
     private int damage = 5;

@@ -5,15 +5,14 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.*;
-import com.codecool.dungeoncrawl.data.actors.enemies.Cow;
-import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
-import com.codecool.dungeoncrawl.data.actors.enemies.Octopus;
-import com.codecool.dungeoncrawl.data.actors.enemies.Skeleton;
+import com.codecool.dungeoncrawl.data.actors.npcs.Cow;
+import com.codecool.dungeoncrawl.data.actors.npcs.NPC;
+import com.codecool.dungeoncrawl.data.actors.npcs.Octopus;
+import com.codecool.dungeoncrawl.data.actors.npcs.Skeleton;
 import com.codecool.dungeoncrawl.data.items.Key;
 
 
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -27,7 +26,7 @@ public class MapLoader {
 
         scanner.nextLine(); // empty line
 
-        Set<Enemy> enemies = new HashSet<>();
+        Set<NPC> enemies = new HashSet<>();
 
         GameMap map = new GameMap(width, height, CellType.EMPTY, enemies);
         for (int y = 0; y < height; y++) {
@@ -47,8 +46,8 @@ public class MapLoader {
                             break;
                         case 's':
                             cell.setType(CellType.FLOOR);
-                            map.enemyManager.addEnemy(new Skeleton(cell, "skeleton"));
-                            System.out.println( map.enemyManager.getEnemy("skeleton"));
+                            map.NPCManager.addNPC(new Skeleton(cell, "skeleton"));
+                            System.out.println( map.NPCManager.getNPC("skeleton"));
                             break;
                         case 'k':
                             cell.setType(CellType.FLOOR);
@@ -68,11 +67,11 @@ public class MapLoader {
                             break;
                         case 'c':
                             cell.setType(CellType.FLOOR);
-                            map.enemyManager.addEnemy(new Cow(cell, "cow"));
+                            map.NPCManager.addNPC(new Cow(cell, "cow"));
                             break;
                         case 'o':
                             cell.setType(CellType.FLOOR);
-                            map.enemyManager.addEnemy(new Octopus(cell, "octopus"));
+                            map.NPCManager.addNPC(new Octopus(cell, "octopus"));
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);
