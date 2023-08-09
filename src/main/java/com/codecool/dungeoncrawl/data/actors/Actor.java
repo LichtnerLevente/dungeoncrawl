@@ -17,13 +17,8 @@ public abstract class Actor implements Drawable {
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
         if (checkIfValidTile(nextCell)) {
-            cell.setActor(null);
-            nextCell.setActor(this);
-            cell = nextCell;
+            moveToNextTile(nextCell);
         }
-
-//        System.out.println(getX());
-//        System.out.println(getY());
     }
 
 
@@ -48,7 +43,12 @@ public abstract class Actor implements Drawable {
         return cell.getY();
     }
 
-    private boolean checkIfValidTile(Cell cell) {
+    void moveToNextTile(Cell nextCell) {
+        cell.setActor(null);
+        nextCell.setActor(this);
+        cell = nextCell;
+    }
+    boolean checkIfValidTile(Cell cell) {
         if (cell.getTileName().equals("wall") || cell.getType().equals(CellType.DOOR)) return false;
         return cell.getActor() == null;
     }

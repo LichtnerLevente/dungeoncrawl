@@ -44,21 +44,13 @@ public class Player extends Actor {
     public String getTileName() {
         return "player";
     }
-    private void moveToNextTile(Cell nextCell) {
-        cell.setActor(null);
-        nextCell.setActor(this);
-        cell = nextCell;
-    }
+
     private void  pickUpItem(Cell cell){
         inventory.add((Key) cell.getItem());
         cell.setItem(null);
 
     }
 
-    private boolean checkIfValidTile(Cell cell) {
-        if (cell.getTileName().equals("wall") || cell.getType().equals(CellType.DOOR)) return false;
-        return cell.getActor() == null;
-    }
     public void attackingMonster(Cell cell, Actor monster) {
         int monsterNewHealth = monster.getHealth() - 5;
 
