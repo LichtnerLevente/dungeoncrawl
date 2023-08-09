@@ -15,7 +15,7 @@ public class GameMap {
 
     private Dog dog;
 
-    private Cow cow;
+//    private Cow cow;
 
     private Octopus octopus;
 
@@ -66,12 +66,12 @@ public class GameMap {
     }
 
     public Cow getCow() {
-        return cow;
+        return (Cow) enemyManager.getEnemy("cow");
     }
 
-    public void setCow(Cow cow) {
-        this.cow = cow;
-    }
+//    public void setCow(Cow cow) {
+//        this.cow = cow;
+//    }
 
     public Octopus getOctopus() {
         return octopus;

@@ -18,6 +18,7 @@ public abstract class Enemy extends Actor {
     public void setName(String name) {
         this.name = name;
     }
+    public void move(){}
 
     @Override
     public String getTileName() {

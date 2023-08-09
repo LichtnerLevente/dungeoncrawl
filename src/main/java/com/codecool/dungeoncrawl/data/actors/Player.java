@@ -3,6 +3,7 @@ package com.codecool.dungeoncrawl.data.actors;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
+import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
 import com.codecool.dungeoncrawl.data.items.Inventory;
 import com.codecool.dungeoncrawl.data.items.InventoryImpl;
 
@@ -70,6 +71,7 @@ public class Player extends Actor {
             health = getHealth() - monster.getDamage();
             System.out.println(monster.getHealth());
         } else {
+            cell.getGameMap().enemyManager.removeEnemy(((Enemy) cell.getActor()).getName());
             cell.setActor(null);
         }
     }

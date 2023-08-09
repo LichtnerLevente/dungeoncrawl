@@ -27,5 +27,15 @@ public class EnemyManagerImpl implements EnemyManager{
         enemies.removeIf(enemy -> enemy.getName().equals(name));
     }
 
+    @Override
+    public void removeEnemy(Enemy enemy) {
+        enemies.remove(enemy);
+    }
 
+    @Override
+    public void moveEnemies() {
+        for(Enemy enemy : enemies){
+            if(enemy != null) enemy.move();
+        }
+    }
 }

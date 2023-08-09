@@ -68,7 +68,7 @@ public class MapLoader {
                             break;
                         case 'c':
                             cell.setType(CellType.FLOOR);
-                            map.setCow(new Cow(cell, "cow"));
+                            map.enemyManager.addEnemy(new Cow(cell, "cow"));
                             break;
                         case 'o':
                             cell.setType(CellType.FLOOR);
