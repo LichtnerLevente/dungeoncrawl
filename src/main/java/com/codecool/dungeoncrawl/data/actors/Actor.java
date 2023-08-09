@@ -6,7 +6,9 @@ import com.codecool.dungeoncrawl.data.Drawable;
 
 public abstract class Actor implements Drawable {
     Cell cell;
+    static int [] prevCoord = new int[2];
     int health = 10;
+
 
     public Actor(Cell cell) {
         this.cell = cell;
@@ -15,12 +17,18 @@ public abstract class Actor implements Drawable {
 
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-
         if (checkIfValidTile(nextCell)) {
             cell.setActor(null);
+            prevCoord[0] = cell.getX();
+            prevCoord[1] = cell.getY();
+//            System.out.println("ACTOR" + prevCoord[0]);
+//            System.out.println("ACTOR" + prevCoord[1]);
             nextCell.setActor(this);
             cell = nextCell;
         }
+
+//        System.out.println(getX());
+//        System.out.println(getY());
     }
 
 

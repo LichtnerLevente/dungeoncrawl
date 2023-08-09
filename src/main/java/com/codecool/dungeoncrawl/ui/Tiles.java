@@ -33,6 +33,7 @@ public class Tiles {
         tileMap.put("destructible_wall", new Tile(12,17));
         tileMap.put("crown", new Tile(12, 24));
         tileMap.put("blue_key", new Tile(17, 23));
+        tileMap.put("dog", new Tile(29, 7));
 
     }
 
