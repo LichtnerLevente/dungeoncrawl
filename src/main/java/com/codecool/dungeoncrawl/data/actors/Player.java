@@ -3,7 +3,6 @@ package com.codecool.dungeoncrawl.data.actors;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
-import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.items.Inventory;
 import com.codecool.dungeoncrawl.data.items.InventoryImpl;
 import com.codecool.dungeoncrawl.data.items.Key;
@@ -21,6 +20,9 @@ public class Player extends Actor {
     @Override
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
+        if (nextCell.getActor() != null) {
+            attackingMonster(nextCell, nextCell.getActor());
+        }
         if(nextCell.getType().equals(CellType.DOOR)){
             Door door = (Door) nextCell;
             if (inventory.contains(door.getKey())){
@@ -55,5 +57,20 @@ public class Player extends Actor {
     private boolean checkIfValidTile(Cell cell) {
         if (cell.getTileName().equals("wall") || cell.getType().equals(CellType.DOOR)) return false;
         return cell.getActor() == null;
+    }
+    public void attackingMonster(Cell cell, Actor monster) {
+        int monsterNewHealth = monster.getHealth() - 5;
+
+        System.out.println("Monster's starting health: " + monster.getHealth());
+        System.out.println("Monster's new health: " + monsterNewHealth);
+        System.out.println("Monster's type: " + monster.getTileName());
+
+        if (monsterNewHealth > 0) {
+            monster.setHealth(monsterNewHealth);
+            health = health - 2;
+            System.out.println(monster.getHealth());
+        } else {
+            cell.setActor(null);
+        }
     }
 }
