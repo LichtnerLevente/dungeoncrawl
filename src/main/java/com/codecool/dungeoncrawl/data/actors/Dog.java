@@ -32,9 +32,5 @@ public class Dog extends Actor {
             nextCell.setActor(this);
             cell = nextCell;
         }
-//        System.out.println(prevCoord[0]);
-//        System.out.println(prevCoord[1]);
-//        System.out.println(Arrays.toString(prevCoord));
-
     }
 }
