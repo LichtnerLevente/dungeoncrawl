@@ -2,8 +2,10 @@ package com.codecool.dungeoncrawl.ui.elements;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 public class StatusPane {
     public static final int RIGHT_PANEL_WIDTH = 200;
@@ -17,15 +19,41 @@ public class StatusPane {
     private Label inventoryTextLabel;
     private Label inventoryValueLabel;
 
+    private Label gameOverTextLabel;
+
     public StatusPane() {
         ui = new GridPane();
-        healthTextLabel = new Label("Health: ");
-        healthValueLabel = new Label();
-        damageTextLabel = new Label("Damage: ");
-        damageValueLabel = new Label();
-        inventoryTextLabel = new Label("Inventory: ");
-        inventoryValueLabel = new Label();
 
+        ui.setStyle("-fx-background-color: rgb(71, 45, 60);-fx-border-color: rgb(207, 198, 184); -fx-border-width: 5px;");
+
+        healthTextLabel = new Label("Health: ");
+        healthTextLabel.setFont(new Font("Verdana", 15));
+        healthTextLabel.setStyle("-fx-text-fill: rgb(207, 198, 184);");
+
+        healthValueLabel = new Label();
+        healthValueLabel.setFont(new Font("Verdana", 15));
+        healthValueLabel.setStyle("-fx-text-fill: rgb(207, 198, 184);");
+
+        damageTextLabel = new Label("Damage: ");
+        damageTextLabel.setFont(new Font("Verdana", 15));
+        damageTextLabel.setStyle("-fx-text-fill: rgb(207, 198, 184);");
+
+        damageValueLabel = new Label();
+        damageValueLabel.setFont(new Font("Verdana", 15));
+        damageValueLabel.setStyle("-fx-text-fill: rgb(207, 198, 184);");
+
+        inventoryTextLabel = new Label("Inventory: ");
+        inventoryTextLabel.setFont(new Font("Verdana", 15));
+        inventoryTextLabel.setStyle("-fx-text-fill: rgb(207, 198, 184);");
+
+        inventoryValueLabel = new Label();
+        inventoryValueLabel.setFont(new Font("Verdana", 15));
+        inventoryValueLabel.setStyle("-fx-text-fill: rgb(207, 198, 184);");
+
+        gameOverTextLabel = new Label("YOU DIED");
+        gameOverTextLabel.setFont(new Font("Verdana", 30));
+        gameOverTextLabel.setStyle("-fx-text-fill: rgb(207, 198, 184);-fx-text-alignment: center;");
+        gameOverTextLabel.setVisible(false);
     }
 
     public BorderPane build() {
@@ -42,19 +70,25 @@ public class StatusPane {
         ui.add(inventoryTextLabel, 0, 2);
         ui.add(inventoryValueLabel, 1, 2);
 
+        ui.add(gameOverTextLabel, 0,3);
+
         BorderPane borderPane = new BorderPane();
-        borderPane.setRight(ui);
+        borderPane.setTop(ui);
         return borderPane;
+    }
+
+    public Label getGameOverTextLabel() {
+        return gameOverTextLabel;
     }
 
     public void setHealthValue(String text) {
         healthValueLabel.setText(text);
     }
-
     public void setDamageValue(String text) {
         damageValueLabel.setText(text);
     }
     public void setInventoryValueLabel(String text) {
         inventoryValueLabel.setText(text);
     }
+
 }
