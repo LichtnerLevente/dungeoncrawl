@@ -1,12 +1,12 @@
-package com.codecool.dungeoncrawl.data.actors.npcs;
+package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.actors.Actor;
 
-public abstract class NPC extends Actor {
+public abstract class Enemy extends Actor {
     private String name;
 
-    public NPC(Cell cell, String name) {
+    public Enemy(Cell cell, String name) {
         super(cell);
         this.name = name;
     }

@@ -1,6 +1,6 @@
 package com.codecool.dungeoncrawl.data;
 
-import com.codecool.dungeoncrawl.data.actors.npcs.*;
+import com.codecool.dungeoncrawl.data.actors.enemies.*;
 import com.codecool.dungeoncrawl.data.actors.Dog;
 import com.codecool.dungeoncrawl.data.actors.Player;
 
@@ -15,10 +15,10 @@ public class GameMap {
 
     private Dog dog;
 
-    public NPCManager NPCManager;
+    public EnemyManager EnemyManager;
 
-    public GameMap(int width, int height, CellType defaultCellType, Set<NPC> enemies) {
-        NPCManager = new NPCManagerImpl(enemies);
+    public GameMap(int width, int height, CellType defaultCellType, Set<Enemy> enemies) {
+        EnemyManager = new EnemyManagerImpl(enemies);
         this.width = width;
         this.height = height;
         cells = new Cell[width][height];

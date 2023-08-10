@@ -12,7 +12,7 @@ public class Left implements KeyHandler {
         if(code.equals(event.getCode())){
             map.getPlayer().move(-1, 0);
             map.getDog().moveDog();
-            map.NPCManager.moveNPCs();
+            map.EnemyManager.moveEnemies();
         }
     }
 }

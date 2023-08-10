@@ -1,9 +1,9 @@
-package com.codecool.dungeoncrawl.data.actors.npcs;
+package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import java.util.Random;
 
-public class Octopus extends NPC {
+public class Octopus extends Enemy {
     private int health = 20;
 
     private int damage = 9;
