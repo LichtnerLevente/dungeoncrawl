@@ -2,8 +2,6 @@ package com.codecool.dungeoncrawl.data.actors;
 
 import com.codecool.dungeoncrawl.data.Cell;
 
-import java.util.Arrays;
-
 public class Dog extends Actor {
     boolean shouldMove = false;
 
@@ -22,12 +20,10 @@ public class Dog extends Actor {
 
 
     public void moveDog() {
-        Cell nextCell = cell.getCell(Player.getPrevCoord()[0], Player.getPrevCoord()[1]);
+        Cell nextCell = getCell().getCell(Player.getPrevCoord()[0], Player.getPrevCoord()[1]);
         if (checkIfValidTile(nextCell)) {
             if (shouldMove) {
-                cell.setActor(null);
-                nextCell.setActor(this);
-                cell = nextCell;
+                moveToTile(nextCell);
             }
         }
     }

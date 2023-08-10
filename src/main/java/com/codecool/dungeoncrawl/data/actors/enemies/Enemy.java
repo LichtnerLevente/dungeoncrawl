@@ -24,4 +24,10 @@ public abstract class Enemy extends Actor {
     public String getTileName() {
         return name;
     }
+
+    @Override
+    public void kill() {
+        super.kill();
+        getCell().getGameMap().EnemyManager.removeEnemy((Enemy) this);
+    }
 }
