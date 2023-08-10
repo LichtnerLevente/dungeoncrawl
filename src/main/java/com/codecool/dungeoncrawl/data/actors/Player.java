@@ -26,8 +26,8 @@ public class Player extends Actor {
     @Override
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        if(nextCell.getActor() != null && nextCell.getActor().getTileName().equals("dog")) {
-            ((Dog) nextCell.getActor()).setShouldMove(true);
+        if(nextCell.getActor() != null && nextCell.getActor().getTileName().equals("cat")) {
+            ((Cat) nextCell.getActor()).setShouldMove(true);
         }
         else if (nextCell.getActor() != null) {
             attackingMonster(nextCell, nextCell.getActor());
@@ -36,7 +36,7 @@ public class Player extends Actor {
             Door door = (Door) nextCell;
             if (inventory.contains(door.getKey())){
                 door.setToOpen();
-                moveToNextTile(nextCell);
+                moveToTile(nextCell);
             }
         }
         if (nextCell.getItem() != null) {
@@ -48,7 +48,7 @@ public class Player extends Actor {
         if (checkIfValidTile(nextCell)) {
             prevCoord[0] = cell.getX();
             prevCoord[1] = cell.getY();
-            moveToNextTile(nextCell);
+            moveToTile(nextCell);
         }
     }
 
@@ -79,7 +79,8 @@ public class Player extends Actor {
             if (monster.getTileName().equals("cow")) {
                 inventory.add(new Key(cell, "monster_key"));
             }
-            cell.setActor(null);
+            cell.getActor().kill();
+
         }
     }
 

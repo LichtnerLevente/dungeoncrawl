@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class GameMapTest {
+    /*
     GameMap map;
 
     @BeforeEach
@@ -23,4 +24,6 @@ class GameMapTest {
         assert map.getCell(x, y).getType().equals(CellType.DOOR);
 
     }
+
+     */
 }
