@@ -22,7 +22,7 @@ public class Game extends Application {
         this.logic = new GameLogic();
         this.ui = new UI(logic, keyHandlers);
         ui.setUpPain(primaryStage);
-        ui.setUpDefeat(primaryStage);
+        ui.setUpGameOver(primaryStage);
 
         primaryStage.setTitle("Dungeon Crawl");
         primaryStage.show();

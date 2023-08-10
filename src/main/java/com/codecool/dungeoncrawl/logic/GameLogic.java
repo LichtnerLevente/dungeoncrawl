@@ -5,7 +5,7 @@ import com.codecool.dungeoncrawl.data.GameMap;
 
 public class GameLogic {
     private GameMap map;
-    private static int visionRange = 10;
+    private static int visionRange = 2;
     private boolean win = false;
     private boolean defeat = false;
 

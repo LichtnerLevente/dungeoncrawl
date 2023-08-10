@@ -34,9 +34,14 @@ public class UI {
         this.statusPane = new StatusPane();
         this.keyHandlers = keyHandlers;
     }
-    private void loadDefeat(){
-        GameLogic.setVisionRange(50);
-        logic.setMap(MapLoader.loadMap("defeat"));
+    private void loadGameOver(){
+        GameLogic.setVisionRange(30);
+        if(logic.isDefeat()) {
+            logic.setMap(MapLoader.loadMap("defeat"));
+        } else if (logic.isWin()){
+            logic.setMap(MapLoader.loadMap("victory"));
+
+        }
         this.canvas = new Canvas(
                 logic.getMapWidth() * Tiles.TILE_WIDTH,
                 logic.getMapHeight() * Tiles.TILE_WIDTH);
@@ -53,7 +58,7 @@ public class UI {
         refresh();
             scene.setOnKeyPressed(this::onKeyPressed);
     }
-    public void setUpDefeat(Stage primaryStage) {
+    public void setUpGameOver(Stage primaryStage) {
         Scene scene = mainStage.getScene();
         primaryStage.setScene(scene);
 
@@ -67,7 +72,7 @@ public class UI {
             if(!logic.isDefeat() && !logic.isWin()){
                 keyHandler.perform(keyEvent, logic.getMap());
             } else {
-                loadDefeat();
+                loadGameOver();
             }
         }
         refresh();
