@@ -83,9 +83,7 @@ public class Player extends Actor {
             health = getHealth() - monster.getDamage();
             System.out.println(monster.getHealth());
         } else {
-            if (monster.getTileName().equals("cow")) {
-                inventory.add(new Key(cell, "monster_key"));
-            }
+
             cell.getActor().kill();
 
         }
