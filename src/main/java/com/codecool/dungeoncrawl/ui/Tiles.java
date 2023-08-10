@@ -38,6 +38,7 @@ public class Tiles {
         tileMap.put("cat", new Tile(29, 7));
         tileMap.put("cow", new Tile(27, 7));
         tileMap.put("octopus", new Tile(25, 8));
+        tileMap.put("ghost", new Tile(27, 8));
         tileMap.put("sword", new Tile(1, 30));
 
     }

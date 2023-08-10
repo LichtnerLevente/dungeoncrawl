@@ -5,10 +5,7 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.*;
-import com.codecool.dungeoncrawl.data.actors.enemies.Cow;
-import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
-import com.codecool.dungeoncrawl.data.actors.enemies.Octopus;
-import com.codecool.dungeoncrawl.data.actors.enemies.Skeleton;
+import com.codecool.dungeoncrawl.data.actors.enemies.*;
 import com.codecool.dungeoncrawl.data.items.Key;
 
 
@@ -47,7 +44,7 @@ public class MapLoader {
                         case 's':
                             cell.setType(CellType.FLOOR);
                             map.EnemyManager.addEnemy(new Skeleton(cell, "skeleton"));
-                            System.out.println( map.EnemyManager.getEnemy("skeleton"));
+                            System.out.println(map.EnemyManager.getEnemy("skeleton"));
                             break;
                         case 'k':
                             cell.setType(CellType.FLOOR);
@@ -84,6 +81,10 @@ public class MapLoader {
                         case 'o':
                             cell.setType(CellType.FLOOR);
                             map.EnemyManager.addEnemy(new Octopus(cell, "octopus"));
+                            break;
+                        case 'g':
+                            cell.setType(CellType.FLOOR);
+                            map.EnemyManager.addEnemy(new Ghost(cell, "ghost"));
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);
