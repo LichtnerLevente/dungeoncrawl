@@ -6,6 +6,7 @@ import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.items.Inventory;
 import com.codecool.dungeoncrawl.data.items.InventoryImpl;
 import com.codecool.dungeoncrawl.data.items.Key;
+import com.codecool.dungeoncrawl.logic.GameLogic;
 
 
 import java.util.HashSet;
@@ -17,8 +18,8 @@ public class Player extends Actor {
 
     private final Inventory inventory = new InventoryImpl(new HashSet<>());
 
-    static int [] currrentCoord = new int[2];
-    static int [] prevCoord = new int[2];
+    static int[] currrentCoord = new int[2];
+    static int[] prevCoord = new int[2];
 
     public Player(Cell cell) {
         super(cell);
@@ -27,15 +28,17 @@ public class Player extends Actor {
     @Override
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        if(nextCell.getActor() != null && nextCell.getActor().getTileName().equals("cat")) {
-            ((Cat) nextCell.getActor()).setShouldMove(true);
-        }
-        else if (nextCell.getActor() != null) {
+        if (nextCell.getActor() != null && nextCell.getActor().getTileName().equals("cat")) {
+            Cat cat = (Cat) nextCell.getActor();
+            if (inventory.contains("fish")) {
+                cat.setShouldMove(true);
+            }
+        } else if (nextCell.getActor() != null) {
             attackingMonster(nextCell, nextCell.getActor());
         }
-        if(nextCell.getType().equals(CellType.DOOR)){
+        if (nextCell.getType().equals(CellType.DOOR)) {
             Door door = (Door) nextCell;
-            if (inventory.contains(door.getKey())){
+            if (inventory.contains(door.getKey())) {
                 door.setToOpen();
                 moveToTile(nextCell);
             }
@@ -44,6 +47,9 @@ public class Player extends Actor {
             pickUpItem(nextCell);
             if (inventory.contains("sword")) {
                 setDamage(1000);
+            }
+            if (inventory.contains("torch")) {
+                GameLogic.setVisionRange(6);
             }
         }
         if (checkIfValidTile(nextCell)) {
@@ -57,7 +63,7 @@ public class Player extends Actor {
         return this.getCell().outOfRange() ? "fog" : "player";
     }
 
-    private void  pickUpItem(Cell cell){
+    private void pickUpItem(Cell cell) {
         inventory.add(cell.getItem());
         if (cell.getItem().getName().equals("shield")) {
             setHealth(health = 10000);
