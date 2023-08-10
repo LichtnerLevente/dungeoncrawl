@@ -60,4 +60,5 @@ public class GameMap {
     public void setDog(Cat cat) {
         this.cat = cat;
     }
+
 }

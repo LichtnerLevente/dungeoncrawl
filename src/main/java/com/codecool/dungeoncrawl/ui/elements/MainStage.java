@@ -31,4 +31,5 @@ public class MainStage {
     }
     public void setDamageLabelText(String text) {this.statusPane.setDamageValue(text);}
     public void setInventoryLabelText(String text) {this.statusPane.setInventoryValueLabel(text);}
+    public void setGameOverLabelText(String text) {this.statusPane.setGameOverValueLabel(text);}
 }
