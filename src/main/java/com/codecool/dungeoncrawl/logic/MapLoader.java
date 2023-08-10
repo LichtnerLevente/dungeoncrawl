@@ -65,6 +65,10 @@ public class MapLoader {
                             Door blue_door = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "blue_key", "blue_door", "blue_open_door");
                             map.placeCell(blue_door);
                             break;
+                        case '2':
+                            cell.setType(CellType.FLOOR);
+                            new Key(cell, "blue_key");
+                            break;
                         case 'p':
                             cell.setType(CellType.FLOOR);
                             new Key(cell, "pickaxe");
