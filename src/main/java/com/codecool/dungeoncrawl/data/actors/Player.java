@@ -3,7 +3,6 @@ package com.codecool.dungeoncrawl.data.actors;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.items.*;
-import com.codecool.dungeoncrawl.logic.GameLogic;
 
 
 import java.util.HashSet;
@@ -25,14 +24,9 @@ public class Player extends Actor {
     @Override
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        if (nextCell.isCat()) {
-            Cat cat = (Cat) nextCell.getActor();
-            if (inventory.contains("fish")) {
-                cat.setShouldMove(true);
-            }
-        } else if (nextCell.getActor() != null) {
-            attackingMonster(nextCell, nextCell.getActor());
-        }
+
+        checkForActor(nextCell);
+
         if (nextCell.isDoor()) {
             Door door = (Door) nextCell;
             if (inventory.contains(door.getKey())) {
@@ -58,12 +52,24 @@ public class Player extends Actor {
     private void pickUpItem(Cell cell) {
         Item item = cell.getItem();
         inventory.add(item);
-        if(item.getType() == ItemType.TOOL){
-            System.out.println("is a tool");
+        if (item.getType() == ItemType.TOOL) {
             Tool tool = (Tool) item;
             tool.modifyStat();
         }
         cell.setItem(null);
+    }
+
+    private void checkForActor(Cell cell) {
+        Actor actor = cell.getActor();
+        if (actor == null) return;
+        if (actor.isCat()) {
+            Cat cat = (Cat) actor;
+            if (inventory.contains("fish")) {
+                cat.setShouldMove(true);
+            }
+        } else {
+            attackingMonster(cell, actor);
+        }
     }
 
     public void attackingMonster(Cell cell, Actor monster) {

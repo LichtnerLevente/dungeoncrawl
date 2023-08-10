@@ -72,9 +72,6 @@ public class Cell implements Drawable {
         return this.getDistanceFromPlayer() > GameLogic.getVisionRange();
     }
 
-    public boolean isCat(){
-        return this.getActor() != null && this.getActor().getTileName().equals("cat");
-    }
     public boolean isDoor() {
         return this.getType().equals(CellType.DOOR);
     }
