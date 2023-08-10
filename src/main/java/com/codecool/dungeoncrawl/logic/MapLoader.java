@@ -7,6 +7,7 @@ import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.*;
 import com.codecool.dungeoncrawl.data.actors.enemies.*;
 import com.codecool.dungeoncrawl.data.items.Key;
+import com.codecool.dungeoncrawl.data.items.Tool;
 
 
 import java.io.InputStream;
@@ -75,15 +76,15 @@ public class MapLoader {
                             break;
                         case 'r':
                             cell.setType(CellType.FLOOR);
-                            new Key(cell, "sword");
+                            new Tool(cell, "sword", () -> map.getPlayer().setDamage(100));
                             break;
                         case 'h':
                             cell.setType(CellType.FLOOR);
-                            new Key(cell, "shield");
+                            new Tool(cell, "shield", () -> map.getPlayer().setHealth(map.getPlayer().getHealth()+20));
                             break;
                         case 't':
                             cell.setType(CellType.FLOOR);
-                            new Key(cell, "torch");
+                            new Tool(cell, "torch", () -> GameLogic.setVisionRange(7));
                             break;
                         case 'd':
                             cell.setType(CellType.FLOOR);

@@ -1,11 +1,8 @@
 package com.codecool.dungeoncrawl.data.actors;
 
 import com.codecool.dungeoncrawl.data.Cell;
-import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
-import com.codecool.dungeoncrawl.data.items.Inventory;
-import com.codecool.dungeoncrawl.data.items.InventoryImpl;
-import com.codecool.dungeoncrawl.data.items.Key;
+import com.codecool.dungeoncrawl.data.items.*;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 
 
@@ -45,12 +42,7 @@ public class Player extends Actor {
         }
         if (nextCell.getItem() != null) {
             pickUpItem(nextCell);
-            if (inventory.contains("sword")) {
-                setDamage(1000);
-            }
-            if (inventory.contains("torch")) {
-                GameLogic.setVisionRange(7);
-            }
+
         }
         if (checkIfValidTile(nextCell)) {
             prevCoord[0] = cell.getX();
@@ -64,9 +56,12 @@ public class Player extends Actor {
     }
 
     private void pickUpItem(Cell cell) {
-        inventory.add(cell.getItem());
-        if (cell.getItem().getName().equals("shield")) {
-            setHealth(health += 20);
+        Item item = cell.getItem();
+        inventory.add(item);
+        if(item.getType() == ItemType.TOOL){
+            System.out.println("is a tool");
+            Tool tool = (Tool) item;
+            tool.modifyStat();
         }
         cell.setItem(null);
     }
