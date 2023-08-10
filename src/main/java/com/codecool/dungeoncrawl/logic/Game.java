@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 
 import java.util.Set;
 
+import static javafx.scene.input.KeyCode.R;
+
 public class Game extends Application {
     private UI ui;
     private GameLogic logic;
@@ -18,11 +20,10 @@ public class Game extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.keyHandlers = Set.of(new Up(), new Down(), new Left(), new Right());
+        this.keyHandlers = Set.of(new Up(), new Down(), new Left(), new Right(), new Restart());
         this.logic = new GameLogic();
         this.ui = new UI(logic, keyHandlers);
         ui.setUpPain(primaryStage);
-        ui.setUpGameOver(primaryStage);
 
         primaryStage.setTitle("Dungeon Crawl");
         primaryStage.show();

@@ -34,20 +34,32 @@ public class UI {
         this.statusPane = new StatusPane();
         this.keyHandlers = keyHandlers;
     }
-    private void loadGameOver(){
+
+    private void loadGameOver() {
         GameLogic.setVisionRange(30);
-        if(logic.isDefeat()) {
+        if (logic.isDefeat()) {
             logic.setMap(MapLoader.loadMap("defeat"));
-        } else if (logic.isWin()){
+        }
+        if (logic.isWin()) {
             logic.setMap(MapLoader.loadMap("victory"));
 
         }
         this.canvas = new Canvas(
                 logic.getMapWidth() * Tiles.TILE_WIDTH,
                 logic.getMapHeight() * Tiles.TILE_WIDTH);
-        mainStage.reload(canvas);
+//        mainStage.reload(canvas);
+    }
 
+    public void restartGame() {
 
+//        logic = new GameLogic();
+//        logic.setup();
+        logic.restart();
+
+        logic.setMap(MapLoader.loadMap("map"));
+        this.canvas = new Canvas(
+                logic.getMapWidth() * Tiles.TILE_WIDTH,
+                logic.getMapHeight() * Tiles.TILE_WIDTH);
     }
 
     public void setUpPain(Stage primaryStage) {
@@ -56,28 +68,20 @@ public class UI {
 
         logic.setup();
         refresh();
-            scene.setOnKeyPressed(this::onKeyPressed);
-    }
-    public void setUpGameOver(Stage primaryStage) {
-        Scene scene = mainStage.getScene();
-        primaryStage.setScene(scene);
-
-        logic.setup();
-        refresh();
-//        scene.setOnKeyPressed(this::onKeyPressed);
+        scene.setOnKeyPressed(this::onKeyPressed);
     }
 
     private void onKeyPressed(KeyEvent keyEvent) {
         for (KeyHandler keyHandler : keyHandlers) {
-            if(!logic.isDefeat() && !logic.isWin()){
-                keyHandler.perform(keyEvent, logic.getMap());
+            if (!logic.isDefeat() && !logic.isWin()) {
+                keyHandler.perform(keyEvent, logic.getMap(), this);
             } else {
                 loadGameOver();
+                keyHandler.perform(keyEvent, logic.getMap(), this);
             }
         }
         refresh();
     }
-
 
     public void refresh() {
         context.setFill(Color.BLACK);
@@ -94,10 +98,13 @@ public class UI {
                 }
             }
         }
+        refreshLabels();
+        logic.isGameOver();
+    }
+    private void refreshLabels(){
         mainStage.setHealthLabelText(logic.getPlayerHealth());
         mainStage.setDamageLabelText(logic.getPlayerDamage());
         mainStage.setInventoryLabelText(logic.getInventoryItems());
         mainStage.setGameOverLabelText(logic.getGameOverText());
-        logic.isGameOver();
     }
 }
