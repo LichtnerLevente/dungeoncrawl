@@ -1,7 +1,10 @@
 package com.codecool.dungeoncrawl.data;
 
 import com.codecool.dungeoncrawl.data.actors.Actor;
+import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.items.Item;
+
+import static java.lang.Math.sqrt;
 
 public class Cell implements Drawable {
     private CellType type;
@@ -48,7 +51,7 @@ public class Cell implements Drawable {
 
     @Override
     public String getTileName() {
-        return type.getTileName();
+        return this.outOfRange() ? "empty" : type.getTileName();
     }
 
     public int getX() {
@@ -57,6 +60,15 @@ public class Cell implements Drawable {
 
     public int getY() {
         return y;
+    }
+    private double getDistanceFromPlayer(){
+        double px = Player.getCurrrentCoord()[0];
+        double py = Player.getCurrrentCoord()[1];
+
+        return sqrt(Math.pow((this.x-px), 2) + Math.pow((this.y-py), 2));
+    }
+    public boolean outOfRange(){
+        return this.getDistanceFromPlayer() > 5; //magic number, should be changed later
     }
 
     public GameMap getGameMap() {
