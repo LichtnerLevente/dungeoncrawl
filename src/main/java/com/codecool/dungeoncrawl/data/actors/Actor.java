@@ -53,12 +53,12 @@ public abstract class Actor implements Drawable {
         return cell.getY();
     }
 
-    void moveToTile(Cell nextCell) {
+    protected void moveToTile(Cell nextCell) {
         cell.setActor(null);
         nextCell.setActor(this);
         cell = nextCell;
     }
-    boolean checkIfValidTile(Cell cell) {
+    protected boolean checkIfValidTile(Cell cell) {
          return cell.getTileName().equals("floor") && !cell.getType().equals(CellType.DOOR) && cell.getActor() == null;
     }
 }
