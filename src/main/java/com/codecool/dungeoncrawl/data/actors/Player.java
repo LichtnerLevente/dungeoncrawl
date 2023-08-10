@@ -84,9 +84,7 @@ public class Player extends Actor {
             health = getHealth() - monster.getDamage();
             System.out.println(monster.getHealth());
         } else {
-
             cell.getActor().kill();
-
         }
     }
 
