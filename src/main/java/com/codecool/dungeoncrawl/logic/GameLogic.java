@@ -4,16 +4,14 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.GameMap;
 
 public class GameLogic {
-    private final GameMap map;
-
-    private static int visionRange = 2;
-
-    public GameLogic() {
-        this.map = MapLoader.loadMap();
-    }
-
+    private GameMap map;
+    private static int visionRange = 10;
     private boolean win = false;
     private boolean defeat = false;
+
+    public GameLogic() {
+        this.map = MapLoader.loadMap("map");
+    }
 
 
     public double getMapWidth() {
@@ -56,9 +54,14 @@ public class GameLogic {
         return message;
     }
 
+    public void setMap(GameMap map) {
+        this.map = map;
+    }
+
     public GameMap getMap() {
         return map;
     }
+
 
     public static int getVisionRange() {
         return visionRange;
@@ -67,6 +70,7 @@ public class GameLogic {
     public static void setVisionRange(int visionRange) {
         GameLogic.visionRange = visionRange;
     }
+
     public boolean isWin() {
         return win;
     }
@@ -83,4 +87,12 @@ public class GameLogic {
         this.defeat = defeat;
     }
 
+    public void isGameOver() {
+        if (this.getMap().getPlayer().getHealth() <= 0) {
+            this.setDefeat(true);
+        }
+        if (this.getMap().getPlayer().getInventory().contains("crown")) {
+            this.setWin(true);
+        }
+    }
 }

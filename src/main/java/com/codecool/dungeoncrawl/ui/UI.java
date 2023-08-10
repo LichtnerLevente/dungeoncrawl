@@ -1,8 +1,8 @@
 package com.codecool.dungeoncrawl.ui;
 
 import com.codecool.dungeoncrawl.data.Cell;
-import com.codecool.dungeoncrawl.data.items.Item;
 import com.codecool.dungeoncrawl.logic.GameLogic;
+import com.codecool.dungeoncrawl.logic.MapLoader;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
 import com.codecool.dungeoncrawl.ui.elements.StatusPane;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
@@ -34,6 +34,16 @@ public class UI {
         this.statusPane = new StatusPane();
         this.keyHandlers = keyHandlers;
     }
+    private void loadDefeat(){
+        GameLogic.setVisionRange(50);
+        logic.setMap(MapLoader.loadMap("defeat"));
+        this.canvas = new Canvas(
+                logic.getMapWidth() * Tiles.TILE_WIDTH,
+                logic.getMapHeight() * Tiles.TILE_WIDTH);
+        mainStage.reload(canvas);
+
+
+    }
 
     public void setUpPain(Stage primaryStage) {
         Scene scene = mainStage.getScene();
@@ -41,26 +51,30 @@ public class UI {
 
         logic.setup();
         refresh();
-        scene.setOnKeyPressed(this::onKeyPressed);
+            scene.setOnKeyPressed(this::onKeyPressed);
+    }
+    public void setUpDefeat(Stage primaryStage) {
+        Scene scene = mainStage.getScene();
+        primaryStage.setScene(scene);
+
+        logic.setup();
+        refresh();
+//        scene.setOnKeyPressed(this::onKeyPressed);
     }
 
     private void onKeyPressed(KeyEvent keyEvent) {
         for (KeyHandler keyHandler : keyHandlers) {
-            keyHandler.perform(keyEvent, logic.getMap());
+            if(!logic.isDefeat() && !logic.isWin()){
+                keyHandler.perform(keyEvent, logic.getMap());
+            } else {
+                loadDefeat();
+            }
         }
         refresh();
     }
 
 
     public void refresh() {
-        if(logic.isDefeat()){
-            //start new game
-            return;
-        }
-        if (logic.isWin()){
-            //YOU WIN
-            return;
-        }
         context.setFill(Color.BLACK);
         context.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         for (int x = 0; x < logic.getMapWidth(); x++) {
@@ -79,11 +93,6 @@ public class UI {
         mainStage.setDamageLabelText(logic.getPlayerDamage());
         mainStage.setInventoryLabelText(logic.getInventoryItems());
         mainStage.setGameOverLabelText(logic.getGameOverText());
-        if(logic.getMap().getPlayer().getHealth() <= 0) {
-            logic.setDefeat(true);
-        }
-        if (logic.getMap().getPlayer().getInventory().contains("crown")) {
-            logic.setWin(true);
-        }
+        logic.isGameOver();
     }
 }

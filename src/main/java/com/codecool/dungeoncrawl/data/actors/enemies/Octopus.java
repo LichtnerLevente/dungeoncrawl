@@ -3,7 +3,6 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.actors.Player;
 
-import java.util.Random;
 
 public class Octopus extends Enemy {
     private int health = 20;

@@ -53,11 +53,11 @@ public class GameMap {
         return height;
     }
 
-    public Cat getDog() {
+    public Cat getCat() {
         return cat;
     }
 
-    public void setDog(Cat cat) {
+    public void setCat(Cat cat) {
         this.cat = cat;
     }
 
