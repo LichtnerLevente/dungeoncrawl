@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl.ui;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.data.items.Item;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
@@ -63,5 +64,7 @@ public class UI {
             }
         }
         mainStage.setHealthLabelText(logic.getPlayerHealth());
+        mainStage.setDamageLabelText(logic.getPlayerDamage());
+        mainStage.setInventoryLabelText(logic.getInventoryItems());
     }
 }

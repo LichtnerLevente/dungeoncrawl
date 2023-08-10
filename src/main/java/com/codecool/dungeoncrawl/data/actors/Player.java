@@ -40,6 +40,9 @@ public class Player extends Actor {
         }
         if (nextCell.getItem() != null) {
             pickUpItem(nextCell);
+            if (inventory.contains("sword")) {
+                setDamage(1000);
+            }
         }
         if (checkIfValidTile(nextCell)) {
             prevCoord[0] = cell.getX();
@@ -54,8 +57,10 @@ public class Player extends Actor {
 
     private void  pickUpItem(Cell cell){
         inventory.add(cell.getItem());
+        if (cell.getItem().getName().equals("shield")) {
+            setHealth(health *= 2);
+        }
         cell.setItem(null);
-
     }
 
     public void attackingMonster(Cell cell, Actor monster) {
@@ -94,5 +99,9 @@ public class Player extends Actor {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 }
