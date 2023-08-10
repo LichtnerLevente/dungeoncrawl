@@ -25,7 +25,7 @@ public class Player extends Actor {
     @Override
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        if(nextCell.getActor() != null && nextCell.getActor().getTileName().equals("dog")) {
+        if(nextCell.getActor() != null && nextCell.getActor().getTileName().equals("cat")) {
             ((Cat) nextCell.getActor()).setShouldMove(true);
         }
         else if (nextCell.getActor() != null) {
