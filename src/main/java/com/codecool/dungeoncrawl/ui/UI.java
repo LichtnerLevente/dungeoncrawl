@@ -38,7 +38,8 @@ public class UI {
         GameLogic.setVisionRange(30);
         if(logic.isDefeat()) {
             logic.setMap(MapLoader.loadMap("defeat"));
-        } else if (logic.isWin()){
+        }
+        if (logic.isWin()){
             logic.setMap(MapLoader.loadMap("victory"));
 
         }
@@ -73,6 +74,7 @@ public class UI {
                 keyHandler.perform(keyEvent, logic.getMap());
             } else {
                 loadGameOver();
+                keyHandler.perform(keyEvent, logic.getMap());
             }
         }
         refresh();
