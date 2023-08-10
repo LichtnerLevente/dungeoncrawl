@@ -49,7 +49,7 @@ public class Player extends Actor {
                 setDamage(1000);
             }
             if (inventory.contains("torch")) {
-                GameLogic.setVisionRange(6);
+                GameLogic.setVisionRange(7);
             }
         }
         if (checkIfValidTile(nextCell)) {

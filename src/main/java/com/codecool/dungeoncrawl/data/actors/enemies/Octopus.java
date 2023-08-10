@@ -1,6 +1,8 @@
 package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.data.actors.Player;
+
 import java.util.Random;
 
 public class Octopus extends Enemy {
@@ -28,10 +30,12 @@ public class Octopus extends Enemy {
 
     @Override
     public void move() {
-        Random random = new Random();
-        int randomDx = random.nextInt(3) -1;
-        int randomDy = random.nextInt(3) -1;
-        super.move(randomDx, randomDy);
+
+        int dx = Integer.compare(Player.getCurrrentCoord()[0], this.getX());
+        int dy = Integer.compare(Player.getCurrrentCoord()[1], this.getY());
+
+        System.out.println("move polip");
+        super.move(dx, dy);
     }
 }
 

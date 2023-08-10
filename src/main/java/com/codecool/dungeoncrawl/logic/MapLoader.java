@@ -44,7 +44,6 @@ public class MapLoader {
                         case 's':
                             cell.setType(CellType.FLOOR);
                             map.EnemyManager.addEnemy(new Skeleton(cell, "skeleton"));
-                            System.out.println(map.EnemyManager.getEnemy("skeleton"));
                             break;
                         case 'k':
                             cell.setType(CellType.FLOOR);
