@@ -53,6 +53,14 @@ public class UI {
 
 
     public void refresh() {
+        if(logic.isDefeat()){
+            //start new game
+            return;
+        }
+        if (logic.isWin()){
+            //YOU WIN
+            return;
+        }
         context.setFill(Color.BLACK);
         context.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         for (int x = 0; x < logic.getMapWidth(); x++) {
@@ -71,5 +79,11 @@ public class UI {
         mainStage.setDamageLabelText(logic.getPlayerDamage());
         mainStage.setInventoryLabelText(logic.getInventoryItems());
         mainStage.setGameOverLabelText(logic.getGameOverText());
+        if(logic.getMap().getPlayer().getHealth() <= 0) {
+            logic.setDefeat(true);
+        }
+        if (logic.getMap().getPlayer().getInventory().contains("crown")) {
+            logic.setWin(true);
+        }
     }
 }

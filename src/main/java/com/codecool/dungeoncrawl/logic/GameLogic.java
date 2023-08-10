@@ -2,15 +2,19 @@ package com.codecool.dungeoncrawl.logic;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.GameMap;
-import com.codecool.dungeoncrawl.data.items.Item;
 
 public class GameLogic {
     private final GameMap map;
 
     private static int visionRange = 2;
+
     public GameLogic() {
         this.map = MapLoader.loadMap();
     }
+
+    private boolean win = false;
+    private boolean defeat = false;
+
 
     public double getMapWidth() {
         return map.getWidth();
@@ -30,16 +34,19 @@ public class GameLogic {
     public String getPlayerHealth() {
         return Integer.toString(map.getPlayer().getHealth());
     }
+
     public String getPlayerDamage() {
         return Integer.toString(map.getPlayer().getDamage());
     }
+
     public String getInventoryItems() {
         return map.getPlayer().getInventory().getItems().toString();
     }
+
     public String getGameOverText() {
         String message = "Alive";
         if (map.getPlayer().getHealth() > 0) {
-            if (map.getPlayer().getInventory().contains("crown") && map.EnemyManager.getEnemies().isEmpty()) {
+            if (map.getPlayer().getInventory().contains("crown")) {
                 message = "YOU WON THE GAME";
             }
             return message;
@@ -48,6 +55,7 @@ public class GameLogic {
         }
         return message;
     }
+
     public GameMap getMap() {
         return map;
     }
@@ -59,4 +67,20 @@ public class GameLogic {
     public static void setVisionRange(int visionRange) {
         GameLogic.visionRange = visionRange;
     }
+    public boolean isWin() {
+        return win;
+    }
+
+    public void setWin(boolean win) {
+        this.win = win;
+    }
+
+    public boolean isDefeat() {
+        return defeat;
+    }
+
+    public void setDefeat(boolean defeat) {
+        this.defeat = defeat;
+    }
+
 }

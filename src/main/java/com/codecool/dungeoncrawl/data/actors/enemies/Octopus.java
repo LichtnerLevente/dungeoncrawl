@@ -34,7 +34,6 @@ public class Octopus extends Enemy {
         int dx = Integer.compare(Player.getCurrrentCoord()[0], this.getX());
         int dy = Integer.compare(Player.getCurrrentCoord()[1], this.getY());
 
-        System.out.println("move polip");
         super.move(dx, dy);
     }
 }
