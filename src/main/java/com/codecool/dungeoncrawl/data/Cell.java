@@ -3,6 +3,7 @@ package com.codecool.dungeoncrawl.data;
 import com.codecool.dungeoncrawl.data.actors.Actor;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.items.Item;
+import com.codecool.dungeoncrawl.logic.GameLogic;
 
 import static java.lang.Math.sqrt;
 
@@ -68,7 +69,7 @@ public class Cell implements Drawable {
         return sqrt(Math.pow((this.x-px), 2) + Math.pow((this.y-py), 2));
     }
     public boolean outOfRange(){
-        return this.getDistanceFromPlayer() > 5; //magic number, should be changed later
+        return this.getDistanceFromPlayer() > GameLogic.getVisionRange();
     }
 
     public GameMap getGameMap() {

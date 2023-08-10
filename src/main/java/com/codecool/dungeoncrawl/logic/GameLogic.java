@@ -6,6 +6,7 @@ import com.codecool.dungeoncrawl.data.GameMap;
 public class GameLogic {
     private final GameMap map;
 
+    private static int visionRange = 8;
     public GameLogic() {
         this.map = MapLoader.loadMap();
     }
@@ -39,5 +40,9 @@ public class GameLogic {
 
     public GameMap getMap() {
         return map;
+    }
+
+    public static int getVisionRange() {
+        return visionRange;
     }
 }
