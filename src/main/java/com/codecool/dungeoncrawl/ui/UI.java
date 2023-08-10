@@ -70,7 +70,7 @@ public class UI {
             mainStage.setHealthLabelText(logic.getPlayerHealth());
             mainStage.setDamageLabelText(logic.getPlayerDamage());
             mainStage.setInventoryLabelText(logic.getInventoryItems());
-            statusPane.getGameOverTextLabel().setVisible(false);
+            //statusPane.getGameOverTextLabel().setVisible(false);
         } else {
             statusPane.getGameOverTextLabel().setVisible(true);
         }
