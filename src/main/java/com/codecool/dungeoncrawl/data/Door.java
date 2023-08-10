@@ -24,7 +24,7 @@ public class Door extends Cell {
 
     @Override
     public String getTileName() {
-        return this.name;
+        return this.outOfRange() ? "empty" : this.name;
     }
 
     public void setToOpen() {

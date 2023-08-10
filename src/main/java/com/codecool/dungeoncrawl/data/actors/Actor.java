@@ -8,6 +8,7 @@ public abstract class Actor implements Drawable {
     Cell cell;
     int health;
     int damage;
+    private String name;
 
     public Actor(Cell cell) {
         this.cell = cell;
@@ -58,7 +59,6 @@ public abstract class Actor implements Drawable {
         cell = nextCell;
     }
     boolean checkIfValidTile(Cell cell) {
-        if (cell.getTileName().equals("wall") || cell.getType().equals(CellType.DOOR)) return false;
-        return cell.getActor() == null;
+         return cell.getTileName().equals("floor") && !cell.getType().equals(CellType.DOOR) && cell.getActor() == null;
     }
 }
