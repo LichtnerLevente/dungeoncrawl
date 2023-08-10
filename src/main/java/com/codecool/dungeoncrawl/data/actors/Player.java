@@ -35,7 +35,7 @@ public class Player extends Actor {
             Door door = (Door) nextCell;
             if (inventory.contains(door.getKey())){
                 door.setToOpen();
-                moveToNextTile(nextCell);
+                moveToTile(nextCell);
             }
         }
         if (nextCell.getItem() != null) {
@@ -47,7 +47,7 @@ public class Player extends Actor {
         if (checkIfValidTile(nextCell)) {
             prevCoord[0] = cell.getX();
             prevCoord[1] = cell.getY();
-            moveToNextTile(nextCell);
+            moveToTile(nextCell);
         }
     }
 
@@ -75,7 +75,7 @@ public class Player extends Actor {
             health = getHealth() - monster.getDamage();
             System.out.println(monster.getHealth());
         } else {
-            cell.setActor(null);
+            cell.getActor().kill();
         }
     }
 

@@ -17,12 +17,15 @@ public abstract class Actor implements Drawable {
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
         if (checkIfValidTile(nextCell)) {
-            moveToNextTile(nextCell);
+            moveToTile(nextCell);
         }
     }
 
     public int getHealth() {
         return health;
+    }
+    public void kill(){
+        cell.setActor(null);
     }
 
     public void setHealth(int health) {
@@ -49,7 +52,7 @@ public abstract class Actor implements Drawable {
         return cell.getY();
     }
 
-    void moveToNextTile(Cell nextCell) {
+    void moveToTile(Cell nextCell) {
         cell.setActor(null);
         nextCell.setActor(this);
         cell = nextCell;

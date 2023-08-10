@@ -1,14 +1,14 @@
-package com.codecool.dungeoncrawl.data.actors;
+package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
 
-public class Skeleton extends Actor {
+public class Skeleton extends Enemy {
     private int health = 5;
 
     private int damage = 2;
 
-    public Skeleton(Cell cell) {
-        super(cell);
+    public Skeleton(Cell cell, String name) {
+        super(cell, name);
     }
 
     @Override
@@ -23,10 +23,5 @@ public class Skeleton extends Actor {
 
     public int getDamage() {
         return damage;
-    }
-
-    @Override
-    public String getTileName() {
-        return "skeleton";
     }
 }

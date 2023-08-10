@@ -1,9 +1,10 @@
 package com.codecool.dungeoncrawl.data;
 
-import com.codecool.dungeoncrawl.data.actors.Cow;
+import com.codecool.dungeoncrawl.data.actors.enemies.*;
 import com.codecool.dungeoncrawl.data.actors.Dog;
-import com.codecool.dungeoncrawl.data.actors.Octopus;
 import com.codecool.dungeoncrawl.data.actors.Player;
+
+import java.util.Set;
 
 public class GameMap {
     private final int width;
@@ -14,11 +15,10 @@ public class GameMap {
 
     private Dog dog;
 
-    private Cow cow;
+    public EnemyManager EnemyManager;
 
-    private Octopus octopus;
-
-    public GameMap(int width, int height, CellType defaultCellType) {
+    public GameMap(int width, int height, CellType defaultCellType, Set<Enemy> enemies) {
+        EnemyManager = new EnemyManagerImpl(enemies);
         this.width = width;
         this.height = height;
         cells = new Cell[width][height];
@@ -59,21 +59,5 @@ public class GameMap {
 
     public void setDog(Dog dog) {
         this.dog = dog;
-    }
-
-    public Cow getCow() {
-        return cow;
-    }
-
-    public void setCow(Cow cow) {
-        this.cow = cow;
-    }
-
-    public Octopus getOctopus() {
-        return octopus;
-    }
-
-    public void setOctopus(Octopus octopus) {
-        this.octopus = octopus;
     }
 }
