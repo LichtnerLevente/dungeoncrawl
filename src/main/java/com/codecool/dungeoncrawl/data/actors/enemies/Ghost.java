@@ -32,8 +32,25 @@ public class Ghost extends Enemy{
         return damage;
     }
 
+//    @Override
+//    public void move(int dx, int dy) {
+//
+//        Cell nextCell = cell.getCell()
+//    }
+
     @Override
     public void move() {
+        Random random = new Random();
+
+        int randomDx = random.nextInt(25);
+        int randomDy = random.nextInt(20);
+
+        Cell nextCell = getCell().getCell(randomDx, randomDy);
+        if (checkIfValidTile(nextCell)) {
+                moveToTile(nextCell);
+
+        }
+
 
 
     }
