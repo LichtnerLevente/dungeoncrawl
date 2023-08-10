@@ -47,29 +47,22 @@ public class UI {
         this.canvas = new Canvas(
                 logic.getMapWidth() * Tiles.TILE_WIDTH,
                 logic.getMapHeight() * Tiles.TILE_WIDTH);
-        mainStage.reload(canvas);
+//        mainStage.reload(canvas);
     }
 
     public void restartGame() {
+
+//        logic = new GameLogic();
+//        logic.setup();
         logic.restart();
-        GameLogic.setVisionRange((2));
+
         logic.setMap(MapLoader.loadMap("map"));
         this.canvas = new Canvas(
                 logic.getMapWidth() * Tiles.TILE_WIDTH,
                 logic.getMapHeight() * Tiles.TILE_WIDTH);
-        mainStage.reload(canvas);
     }
 
     public void setUpPain(Stage primaryStage) {
-        Scene scene = mainStage.getScene();
-        primaryStage.setScene(scene);
-
-        logic.setup();
-        refresh();
-        scene.setOnKeyPressed(this::onKeyPressed);
-    }
-
-    public void setUpGameOver(Stage primaryStage) {
         Scene scene = mainStage.getScene();
         primaryStage.setScene(scene);
 
@@ -90,7 +83,6 @@ public class UI {
         refresh();
     }
 
-
     public void refresh() {
         context.setFill(Color.BLACK);
         context.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -106,10 +98,13 @@ public class UI {
                 }
             }
         }
+        refreshLabels();
+        logic.isGameOver();
+    }
+    private void refreshLabels(){
         mainStage.setHealthLabelText(logic.getPlayerHealth());
         mainStage.setDamageLabelText(logic.getPlayerDamage());
         mainStage.setInventoryLabelText(logic.getInventoryItems());
         mainStage.setGameOverLabelText(logic.getGameOverText());
-        logic.isGameOver();
     }
 }

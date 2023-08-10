@@ -5,7 +5,8 @@ import com.codecool.dungeoncrawl.data.GameMap;
 
 public class GameLogic {
     private GameMap map;
-    private static int visionRange = 2;
+    private static final int baseVision = 2;
+    private static int visionRange = baseVision;
     private boolean win = false;
     private boolean defeat = false;
 
@@ -23,6 +24,7 @@ public class GameLogic {
     }
 
     public void setup() {
+        visionRange = baseVision;
     }
 
     public Cell getCell(int x, int y) {
@@ -56,7 +58,7 @@ public class GameLogic {
     public void restart(){
         this.win=false;
         this.defeat=false;
-        map.EnemyManager.clearEnemies();
+        visionRange = baseVision;
     }
 
     public void setMap(GameMap map) {
