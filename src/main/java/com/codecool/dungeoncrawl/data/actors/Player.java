@@ -71,8 +71,7 @@ public class Player extends Actor {
             health = getHealth() - monster.getDamage();
             System.out.println(monster.getHealth());
         } else {
-            cell.getGameMap().NPCManager.removeNPC(((NPC) cell.getActor()).getName());
-            cell.setActor(null);
+            cell.getActor().kill();
         }
     }
 

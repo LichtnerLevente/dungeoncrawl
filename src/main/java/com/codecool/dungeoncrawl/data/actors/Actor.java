@@ -3,6 +3,7 @@ package com.codecool.dungeoncrawl.data.actors;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Drawable;
+import com.codecool.dungeoncrawl.data.actors.npcs.NPC;
 
 public abstract class Actor implements Drawable {
     Cell cell;
@@ -23,6 +24,10 @@ public abstract class Actor implements Drawable {
 
     public int getHealth() {
         return health;
+    }
+    public void kill(){
+        cell.setActor(null);
+        cell.getGameMap().NPCManager.removeNPC((NPC) this);
     }
 
     public void setHealth(int health) {

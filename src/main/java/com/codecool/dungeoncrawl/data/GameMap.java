@@ -15,10 +15,6 @@ public class GameMap {
 
     private Dog dog;
 
-//    private Cow cow;
-
-    private Octopus octopus;
-
     public NPCManager NPCManager;
 
     public GameMap(int width, int height, CellType defaultCellType, Set<NPC> enemies) {
@@ -63,21 +59,5 @@ public class GameMap {
 
     public void setDog(Dog dog) {
         this.dog = dog;
-    }
-
-    public Cow getCow() {
-        return (Cow) NPCManager.getNPC("cow");
-    }
-
-//    public void setCow(Cow cow) {
-//        this.cow = cow;
-//    }
-
-    public Octopus getOctopus() {
-        return octopus;
-    }
-
-    public void setOctopus(Octopus octopus) {
-        this.octopus = octopus;
     }
 }
