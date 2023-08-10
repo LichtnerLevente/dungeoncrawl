@@ -35,4 +35,9 @@ public class EnemyManagerImpl implements EnemyManager {
             if(enemy != null) enemy.move();
         }
     }
+
+    @Override
+    public Set<Enemy> getEnemies() {
+        return enemies;
+    }
 }

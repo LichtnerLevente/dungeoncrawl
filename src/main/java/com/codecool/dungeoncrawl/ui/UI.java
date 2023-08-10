@@ -38,6 +38,7 @@ public class UI {
     public void setUpPain(Stage primaryStage) {
         Scene scene = mainStage.getScene();
         primaryStage.setScene(scene);
+
         logic.setup();
         refresh();
         scene.setOnKeyPressed(this::onKeyPressed);
@@ -49,6 +50,7 @@ public class UI {
         }
         refresh();
     }
+
 
     public void refresh() {
         context.setFill(Color.BLACK);
@@ -65,14 +67,9 @@ public class UI {
                 }
             }
         }
-        int playerHealth = Integer.parseInt(logic.getPlayerHealth());
-        if (playerHealth >= 0) {
-            mainStage.setHealthLabelText(logic.getPlayerHealth());
-            mainStage.setDamageLabelText(logic.getPlayerDamage());
-            mainStage.setInventoryLabelText(logic.getInventoryItems());
-            //statusPane.getGameOverTextLabel().setVisible(false);
-        } else {
-            statusPane.getGameOverTextLabel().setVisible(true);
-        }
+        mainStage.setHealthLabelText(logic.getPlayerHealth());
+        mainStage.setDamageLabelText(logic.getPlayerDamage());
+        mainStage.setInventoryLabelText(logic.getInventoryItems());
+        mainStage.setGameOverLabelText(logic.getGameOverText());
     }
 }

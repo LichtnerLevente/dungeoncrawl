@@ -32,11 +32,21 @@ public class GameLogic {
     public String getPlayerDamage() {
         return Integer.toString(map.getPlayer().getDamage());
     }
-
     public String getInventoryItems() {
         return map.getPlayer().getInventory().getItems().toString();
     }
-
+    public String getGameOverText() {
+        String message = "Alive";
+        if (map.getPlayer().getHealth() > 0) {
+            if (map.getPlayer().getInventory().contains("crown") && map.EnemyManager.getEnemies().isEmpty()) {
+                message = "YOU WON THE GAME";
+            }
+            return message;
+        } else {
+            message = "YOU DIED";
+        }
+        return message;
+    }
     public GameMap getMap() {
         return map;
     }
