@@ -46,8 +46,12 @@ public class MapLoader {
                             new Key(cell, "crown");
                             break;
                         case 'w':
-                            Door destructibleWall = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "pickaxe", "destructible_wall");
+                            Door destructibleWall = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "pickaxe", "destructible_wall", "floor");
                             map.placeCell(destructibleWall);
+                            break;
+                        case 'u':
+                            Door door = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "monster_key", "door", "open_door");
+                            map.placeCell(door);
                             break;
                         case 'p':
                             cell.setType(CellType.FLOOR);

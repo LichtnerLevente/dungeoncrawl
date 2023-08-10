@@ -5,6 +5,7 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.items.Inventory;
 import com.codecool.dungeoncrawl.data.items.InventoryImpl;
+import com.codecool.dungeoncrawl.data.items.Key;
 
 
 import java.util.HashSet;
@@ -75,6 +76,9 @@ public class Player extends Actor {
             health = getHealth() - monster.getDamage();
             System.out.println(monster.getHealth());
         } else {
+            if (monster.getTileName().equals("cow")) {
+                inventory.add(new Key(cell, "monster_key"));
+            }
             cell.setActor(null);
         }
     }
