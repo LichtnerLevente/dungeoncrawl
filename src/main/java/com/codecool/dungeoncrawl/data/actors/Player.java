@@ -6,6 +6,7 @@ import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.items.Inventory;
 import com.codecool.dungeoncrawl.data.items.InventoryImpl;
 import com.codecool.dungeoncrawl.data.items.Key;
+import com.codecool.dungeoncrawl.logic.GameLogic;
 
 
 import java.util.HashSet;
@@ -44,6 +45,9 @@ public class Player extends Actor {
             pickUpItem(nextCell);
             if (inventory.contains("sword")) {
                 setDamage(1000);
+            }
+            if (inventory.contains("torch")) {
+                GameLogic.setVisionRange(6);
             }
         }
         if (checkIfValidTile(nextCell)) {
