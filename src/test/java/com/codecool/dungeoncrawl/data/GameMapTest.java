@@ -15,7 +15,7 @@ class GameMapTest {
     @Test
     void setCell() {
         int x = 2, y = 2;
-        Cell door = new Door(map, x, y, CellType.DOOR, "asd", "asd");
+        Cell door = new Door(map, x, y, CellType.DOOR, "asd", "asd", "asd");
 
 
         map.placeCell(door);
