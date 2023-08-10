@@ -17,6 +17,7 @@ public class Player extends Actor {
 
     private final Inventory inventory = new InventoryImpl(new HashSet<>());
 
+    static int [] currrentCoord = new int[2];
     static int [] prevCoord = new int[2];
 
     public Player(Cell cell) {
@@ -53,7 +54,7 @@ public class Player extends Actor {
     }
 
     public String getTileName() {
-        return "player";
+        return this.getCell().outOfRange() ? "empty" : "player";
     }
 
     private void  pickUpItem(Cell cell){
@@ -96,6 +97,21 @@ public class Player extends Actor {
     @Override
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public static int[] getCurrrentCoord() {
+        return currrentCoord;
+    }
+
+    public static void setCurrrentCoord(int x, int y) {
+        Player.currrentCoord[0] = x;
+        Player.currrentCoord[1] = y;
+    }
+
+    @Override
+    void moveToTile(Cell nextCell) {
+        Player.setCurrrentCoord(nextCell.getX(), nextCell.getY());
+        super.moveToTile(nextCell);
     }
 
     public int getDamage() {
