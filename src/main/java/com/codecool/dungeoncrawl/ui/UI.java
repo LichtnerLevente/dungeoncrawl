@@ -34,12 +34,13 @@ public class UI {
         this.statusPane = new StatusPane();
         this.keyHandlers = keyHandlers;
     }
-    private void loadGameOver(){
+
+    private void loadGameOver() {
         GameLogic.setVisionRange(30);
-        if(logic.isDefeat()) {
+        if (logic.isDefeat()) {
             logic.setMap(MapLoader.loadMap("defeat"));
         }
-        if (logic.isWin()){
+        if (logic.isWin()) {
             logic.setMap(MapLoader.loadMap("victory"));
 
         }
@@ -47,8 +48,16 @@ public class UI {
                 logic.getMapWidth() * Tiles.TILE_WIDTH,
                 logic.getMapHeight() * Tiles.TILE_WIDTH);
         mainStage.reload(canvas);
+    }
 
-
+    public void restartGame() {
+        logic.restart();
+        GameLogic.setVisionRange((2));
+        logic.setMap(MapLoader.loadMap("map"));
+        this.canvas = new Canvas(
+                logic.getMapWidth() * Tiles.TILE_WIDTH,
+                logic.getMapHeight() * Tiles.TILE_WIDTH);
+        mainStage.reload(canvas);
     }
 
     public void setUpPain(Stage primaryStage) {
@@ -57,24 +66,25 @@ public class UI {
 
         logic.setup();
         refresh();
-            scene.setOnKeyPressed(this::onKeyPressed);
+        scene.setOnKeyPressed(this::onKeyPressed);
     }
+
     public void setUpGameOver(Stage primaryStage) {
         Scene scene = mainStage.getScene();
         primaryStage.setScene(scene);
 
         logic.setup();
         refresh();
-//        scene.setOnKeyPressed(this::onKeyPressed);
+        scene.setOnKeyPressed(this::onKeyPressed);
     }
 
     private void onKeyPressed(KeyEvent keyEvent) {
         for (KeyHandler keyHandler : keyHandlers) {
-            if(!logic.isDefeat() && !logic.isWin()){
-                keyHandler.perform(keyEvent, logic.getMap());
+            if (!logic.isDefeat() && !logic.isWin()) {
+                keyHandler.perform(keyEvent, logic.getMap(), this);
             } else {
                 loadGameOver();
-                keyHandler.perform(keyEvent, logic.getMap());
+                keyHandler.perform(keyEvent, logic.getMap(), this);
             }
         }
         refresh();

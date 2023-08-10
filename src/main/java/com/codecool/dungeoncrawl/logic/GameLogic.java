@@ -53,6 +53,11 @@ public class GameLogic {
         }
         return message;
     }
+    public void restart(){
+        this.win=false;
+        this.defeat=false;
+        map.EnemyManager.clearEnemies();
+    }
 
     public void setMap(GameMap map) {
         this.map = map;
