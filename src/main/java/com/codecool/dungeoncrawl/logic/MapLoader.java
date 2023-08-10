@@ -71,7 +71,7 @@ public class MapLoader {
                             break;
                         case 'd':
                             cell.setType(CellType.FLOOR);
-                            map.setDog(new Dog(cell));
+                            map.setDog(new Cat(cell));
                             break;
                         case 'c':
                             cell.setType(CellType.FLOOR);

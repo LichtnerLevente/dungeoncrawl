@@ -2,16 +2,16 @@ package com.codecool.dungeoncrawl.data.actors;
 
 import com.codecool.dungeoncrawl.data.Cell;
 
-public class Dog extends Actor {
+public class Cat extends Actor {
     boolean shouldMove = false;
 
-    public Dog(Cell cell) {
+    public Cat(Cell cell) {
         super(cell);
     }
 
     @Override
     public String getTileName() {
-        return "dog";
+        return "cat";
     }
 
     void setShouldMove(boolean bool) {
@@ -19,7 +19,7 @@ public class Dog extends Actor {
     }
 
 
-    public void moveDog() {
+    public void moveCat() {
         Cell nextCell = getCell().getCell(Player.getPrevCoord()[0], Player.getPrevCoord()[1]);
         if (checkIfValidTile(nextCell)) {
             if (shouldMove) {

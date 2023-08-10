@@ -11,7 +11,7 @@ public class Up implements KeyHandler {
     public void perform(KeyEvent event, GameMap map) {
         if(code.equals(event.getCode())){
             map.getPlayer().move(0, -1);
-            map.getDog().moveDog();
+            map.getDog().moveCat();
             map.EnemyManager.moveEnemies();
         }
     }

@@ -1,7 +1,7 @@
 package com.codecool.dungeoncrawl.data;
 
 import com.codecool.dungeoncrawl.data.actors.enemies.*;
-import com.codecool.dungeoncrawl.data.actors.Dog;
+import com.codecool.dungeoncrawl.data.actors.Cat;
 import com.codecool.dungeoncrawl.data.actors.Player;
 
 import java.util.Set;
@@ -13,7 +13,7 @@ public class GameMap {
 
     private Player player;
 
-    private Dog dog;
+    private Cat cat;
 
     public EnemyManager EnemyManager;
 
@@ -53,11 +53,11 @@ public class GameMap {
         return height;
     }
 
-    public Dog getDog() {
-        return dog;
+    public Cat getDog() {
+        return cat;
     }
 
-    public void setDog(Dog dog) {
-        this.dog = dog;
+    public void setDog(Cat cat) {
+        this.cat = cat;
     }
 }

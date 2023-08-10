@@ -11,7 +11,7 @@ public class Right implements KeyHandler {
     public void perform(KeyEvent event, GameMap map) {
         if (code.equals(event.getCode())){
             map.getPlayer().move(1, 0);
-            map.getDog().moveDog();
+            map.getDog().moveCat();
             map.EnemyManager.moveEnemies();
         }
     }
