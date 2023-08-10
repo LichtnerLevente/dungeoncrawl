@@ -66,7 +66,7 @@ public class Player extends Actor {
     private void pickUpItem(Cell cell) {
         inventory.add(cell.getItem());
         if (cell.getItem().getName().equals("shield")) {
-            setHealth(health *= 2);
+            setHealth(health = 10000);
         }
         cell.setItem(null);
     }
@@ -115,7 +115,7 @@ public class Player extends Actor {
     }
 
     @Override
-    void moveToTile(Cell nextCell) {
+    protected void moveToTile(Cell nextCell) {
         Player.setCurrrentCoord(nextCell.getX(), nextCell.getY());
         super.moveToTile(nextCell);
     }
