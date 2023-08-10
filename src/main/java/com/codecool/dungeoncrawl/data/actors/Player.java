@@ -1,12 +1,8 @@
 package com.codecool.dungeoncrawl.data.actors;
 
 import com.codecool.dungeoncrawl.data.Cell;
-import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Door;
-import com.codecool.dungeoncrawl.data.items.Inventory;
-import com.codecool.dungeoncrawl.data.items.InventoryImpl;
-import com.codecool.dungeoncrawl.data.items.Key;
-import com.codecool.dungeoncrawl.logic.GameLogic;
+import com.codecool.dungeoncrawl.data.items.*;
 
 
 import java.util.HashSet;
@@ -28,15 +24,10 @@ public class Player extends Actor {
     @Override
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        if (nextCell.getActor() != null && nextCell.getActor().getTileName().equals("cat")) {
-            Cat cat = (Cat) nextCell.getActor();
-            if (inventory.contains("fish")) {
-                cat.setShouldMove(true);
-            }
-        } else if (nextCell.getActor() != null) {
-            attackingMonster(nextCell, nextCell.getActor());
-        }
-        if (nextCell.getType().equals(CellType.DOOR)) {
+
+        checkForActor(nextCell);
+
+        if (nextCell.isDoor()) {
             Door door = (Door) nextCell;
             if (inventory.contains(door.getKey())) {
                 door.setToOpen();
@@ -45,12 +36,7 @@ public class Player extends Actor {
         }
         if (nextCell.getItem() != null) {
             pickUpItem(nextCell);
-            if (inventory.contains("sword")) {
-                setDamage(1000);
-            }
-            if (inventory.contains("torch")) {
-                GameLogic.setVisionRange(7);
-            }
+
         }
         if (checkIfValidTile(nextCell)) {
             prevCoord[0] = cell.getX();
@@ -64,11 +50,26 @@ public class Player extends Actor {
     }
 
     private void pickUpItem(Cell cell) {
-        inventory.add(cell.getItem());
-        if (cell.getItem().getName().equals("shield")) {
-            setHealth(health = 10000);
+        Item item = cell.getItem();
+        inventory.add(item);
+        if (item.getType() == ItemType.TOOL) {
+            Tool tool = (Tool) item;
+            tool.modifyStat();
         }
         cell.setItem(null);
+    }
+
+    private void checkForActor(Cell cell) {
+        Actor actor = cell.getActor();
+        if (actor == null) return;
+        if (actor.isCat()) {
+            Cat cat = (Cat) actor;
+            if (inventory.contains("fish")) {
+                cat.setShouldMove(true);
+            }
+        } else {
+            attackingMonster(cell, actor);
+        }
     }
 
     public void attackingMonster(Cell cell, Actor monster) {
@@ -83,11 +84,7 @@ public class Player extends Actor {
             health = getHealth() - monster.getDamage();
             System.out.println(monster.getHealth());
         } else {
-            if (monster.getTileName().equals("cow")) {
-                inventory.add(new Key(cell, "monster_key"));
-            }
             cell.getActor().kill();
-
         }
     }
 
