@@ -3,7 +3,6 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.actors.Player;
 
-import java.util.Random;
 
 public class Octopus extends Enemy {
     private int health = 20;
@@ -34,7 +33,6 @@ public class Octopus extends Enemy {
         int dx = Integer.compare(Player.getCurrrentCoord()[0], this.getX());
         int dy = Integer.compare(Player.getCurrrentCoord()[1], this.getY());
 
-        System.out.println("move polip");
         super.move(dx, dy);
     }
 }

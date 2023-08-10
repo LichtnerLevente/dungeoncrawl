@@ -18,14 +18,21 @@ public class MainStage {
     private Scene setUpScene() {
         BorderPane borderPane = statusPane.build();
         borderPane.setCenter(canvas);
-        Scene scene = new Scene(borderPane);
-        return scene;
+        return new Scene(borderPane);
     }
 
     public Scene getScene() {
         return scene;
     }
 
+    public void reload(Canvas canvas){
+        this.canvas = canvas;
+        statusPane = new StatusPane();
+
+        BorderPane borderPane = statusPane.build();
+        borderPane.setCenter(canvas);
+        new Scene(borderPane);
+    }
     public void setHealthLabelText(String text) {
         this.statusPane.setHealthValue(text);
     }
