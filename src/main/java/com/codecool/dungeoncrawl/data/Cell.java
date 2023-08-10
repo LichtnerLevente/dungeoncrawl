@@ -52,7 +52,7 @@ public class Cell implements Drawable {
 
     @Override
     public String getTileName() {
-        return this.outOfRange() ? "empty" : type.getTileName();
+        return this.outOfRange() ? "fog" : type.getTileName();
     }
 
     public int getX() {

@@ -22,7 +22,7 @@ public abstract class Enemy extends Actor {
 
     @Override
     public String getTileName() {
-        return this.getCell().outOfRange() ? "empty" : name;
+        return this.getCell().outOfRange() ? "fog" : name;
     }
 
     @Override

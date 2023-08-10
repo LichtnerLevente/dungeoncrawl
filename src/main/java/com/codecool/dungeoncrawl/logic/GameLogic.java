@@ -7,7 +7,7 @@ import com.codecool.dungeoncrawl.data.items.Item;
 public class GameLogic {
     private final GameMap map;
 
-    private static int visionRange = 8;
+    private static int visionRange = 6;
     public GameLogic() {
         this.map = MapLoader.loadMap();
     }

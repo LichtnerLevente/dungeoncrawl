@@ -54,7 +54,7 @@ public class Player extends Actor {
     }
 
     public String getTileName() {
-        return this.getCell().outOfRange() ? "empty" : "player";
+        return this.getCell().outOfRange() ? "fog" : "player";
     }
 
     private void  pickUpItem(Cell cell){

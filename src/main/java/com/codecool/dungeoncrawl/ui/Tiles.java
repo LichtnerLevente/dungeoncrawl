@@ -39,6 +39,7 @@ public class Tiles {
         tileMap.put("cow", new Tile(27, 7));
         tileMap.put("octopus", new Tile(25, 8));
         tileMap.put("sword", new Tile(1, 30));
+        tileMap.put("fog", new Tile(0, 0));
 
     }
 

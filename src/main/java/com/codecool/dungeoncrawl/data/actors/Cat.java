@@ -11,7 +11,7 @@ public class Cat extends Actor {
 
     @Override
     public String getTileName() {
-        return this.getCell().outOfRange() ? "empty" : "cat";
+        return this.getCell().outOfRange() ? "fog" : "cat";
     }
 
     void setShouldMove(boolean bool) {
