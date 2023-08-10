@@ -66,7 +66,7 @@ public class Player extends Actor {
     private void pickUpItem(Cell cell) {
         inventory.add(cell.getItem());
         if (cell.getItem().getName().equals("shield")) {
-            setHealth(health = 10000);
+            setHealth(health += 20);
         }
         cell.setItem(null);
     }
