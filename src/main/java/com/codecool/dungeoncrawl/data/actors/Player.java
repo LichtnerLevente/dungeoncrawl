@@ -28,7 +28,7 @@ public class Player extends Actor {
     @Override
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        if (nextCell.getActor() != null && nextCell.getActor().getTileName().equals("cat")) {
+        if (nextCell.isCat()) {
             Cat cat = (Cat) nextCell.getActor();
             if (inventory.contains("fish")) {
                 cat.setShouldMove(true);
@@ -36,7 +36,7 @@ public class Player extends Actor {
         } else if (nextCell.getActor() != null) {
             attackingMonster(nextCell, nextCell.getActor());
         }
-        if (nextCell.getType().equals(CellType.DOOR)) {
+        if (nextCell.isDoor()) {
             Door door = (Door) nextCell;
             if (inventory.contains(door.getKey())) {
                 door.setToOpen();
