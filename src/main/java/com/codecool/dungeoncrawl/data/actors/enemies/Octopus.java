@@ -29,9 +29,13 @@ public class Octopus extends Enemy {
 
     @Override
     public void move() {
+        Player player = this.getCell().getGameMap().getPlayer();
 
-        int dx = Integer.compare(Player.getCurrrentCoord()[0], this.getX());
-        int dy = Integer.compare(Player.getCurrrentCoord()[1], this.getY());
+        int dx = Integer.compare(player.getCurrrentCoord()[0], this.getX());
+        int dy = Integer.compare(player.getCurrrentCoord()[1], this.getY());
+
+        Cell nextCell = this.getCell().getNeighbor(dx, dy);
+//        this.attack(nextCell);
 
         super.move(dx, dy);
     }

@@ -5,6 +5,8 @@ import com.codecool.dungeoncrawl.data.actors.Actor;
 
 public abstract class Enemy extends Actor {
     private String name;
+    private int damage = 25;
+
 
     public Enemy(Cell cell, String name) {
         super(cell);
@@ -29,5 +31,11 @@ public abstract class Enemy extends Actor {
     public void kill() {
         super.kill();
         getCell().getGameMap().EnemyManager.removeEnemy((Enemy) this);
+    }
+    public void attack(Cell cell){
+        Actor target = cell.getActor();
+        if(target != null && !target.isCat()){
+            target.setHealth(target.getHealth() - 5);
+        }
     }
 }

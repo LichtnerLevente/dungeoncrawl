@@ -80,7 +80,7 @@ public class MapLoader {
                             break;
                         case 'h':
                             cell.setType(CellType.FLOOR);
-                            new Tool(cell, "shield", () -> map.getPlayer().setHealth(map.getPlayer().getHealth()+20));
+                            new Tool(cell, "shield", () -> map.getPlayer().setHealth(map.getPlayer().getHealth()+40));
                             break;
                         case 't':
                             cell.setType(CellType.FLOOR);
@@ -105,7 +105,7 @@ public class MapLoader {
                         case '@':
                             cell.setType(CellType.FLOOR);
                             map.setPlayer(new Player(cell));
-                            Player.setCurrrentCoord(cell.getX(), cell.getY());
+                            map.getPlayer().setCurrrentCoord(cell.getX(), cell.getY());
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
