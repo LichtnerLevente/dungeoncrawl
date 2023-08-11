@@ -20,11 +20,17 @@ public class Cat extends Actor {
 
 
     public void moveCat() {
+
         Cell nextCell = getCell().getCell(Player.getPrevCoord()[0], Player.getPrevCoord()[1]);
         if (checkIfValidTile(nextCell)) {
             if (shouldMove) {
                 moveToTile(nextCell);
             }
         }
+    }
+
+    @Override
+    public boolean isCat() {
+        return true;
     }
 }

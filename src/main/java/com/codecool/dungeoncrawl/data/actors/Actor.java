@@ -62,7 +62,7 @@ public abstract class Actor implements Drawable {
          return cell.getTileName().equals("floor") && !cell.getType().equals(CellType.DOOR) && cell.getActor() == null;
     }
     public boolean isCat(){
-        return this != null && this.getTileName().equals("cat");
+        return false;
     }
 
 }
