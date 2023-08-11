@@ -20,8 +20,9 @@ public class Cat extends Actor {
 
 
     public void moveCat() {
+        Player player = cell.getGameMap().getPlayer();
+        Cell nextCell = cell.getCell(player.getPrevCoord()[0], player.getPrevCoord()[1]);
 
-        Cell nextCell = getCell().getCell(Player.getPrevCoord()[0], Player.getPrevCoord()[1]);
         if (checkIfValidTile(nextCell)) {
             if (shouldMove) {
                 moveToTile(nextCell);

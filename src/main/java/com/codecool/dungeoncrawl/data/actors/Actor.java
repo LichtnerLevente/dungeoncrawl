@@ -5,10 +5,10 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Drawable;
 
 public abstract class Actor implements Drawable {
-    Cell cell;
-    int health;
-    int damage;
-    private String name;
+    protected Cell cell;
+    protected int health;
+    protected int damage;
+    protected String name;
 
     public Actor(Cell cell) {
         this.cell = cell;

@@ -8,9 +8,9 @@ import com.codecool.dungeoncrawl.data.items.*;
 import java.util.HashSet;
 
 public class Player extends Actor {
-    private int health = 10;
+    private static final int BASE_HEALTH = 10;
 
-    private int damage = 5;
+    private static final int BASE_DAMAGE = 5;
 
     private final Inventory inventory = new InventoryImpl(new HashSet<>());
 
@@ -19,6 +19,8 @@ public class Player extends Actor {
 
     public Player(Cell cell) {
         super(cell);
+        health = BASE_HEALTH;
+        damage = BASE_DAMAGE;
     }
 
     @Override
@@ -36,11 +38,10 @@ public class Player extends Actor {
         }
         if (nextCell.getItem() != null) {
             pickUpItem(nextCell);
-
         }
         if (checkIfValidTile(nextCell)) {
-            prevCoord[0] = cell.getX();
-            prevCoord[1] = cell.getY();
+            setPrevCoord(currrentCoord[0], currrentCoord[1]);
+            setCurrrentCoord(nextCell.getX(), nextCell.getY());
             moveToTile(nextCell);
         }
     }
@@ -92,6 +93,10 @@ public class Player extends Actor {
         return prevCoord;
     }
 
+    public void setPrevCoord(int x, int y) {
+        this.prevCoord[0] = x;
+        this.prevCoord[1] = y;
+    }
     @Override
     public int getHealth() {
         return health;
@@ -113,7 +118,6 @@ public class Player extends Actor {
 
     @Override
     protected void moveToTile(Cell nextCell) {
-        this.setCurrrentCoord(nextCell.getX(), nextCell.getY());
         super.moveToTile(nextCell);
     }
 
