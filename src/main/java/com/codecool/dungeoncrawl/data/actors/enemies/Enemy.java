@@ -5,18 +5,11 @@ import com.codecool.dungeoncrawl.data.actors.Actor;
 
 public abstract class Enemy extends Actor {
 
-    public Enemy(Cell cell, String name) {
+    public Enemy(Cell cell) {
         super(cell);
-        this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
     public void move(){}
 
     @Override

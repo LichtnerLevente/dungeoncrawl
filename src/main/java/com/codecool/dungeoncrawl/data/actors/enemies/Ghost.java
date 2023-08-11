@@ -6,8 +6,9 @@ public class Ghost extends Enemy{
     private static final int BASE_HEALTH = 6;
     private static final int BASE_DAMAGE = 25;
 
-    public Ghost(Cell cell, String name) {
-        super(cell, name);
+    public Ghost(Cell cell) {
+        super(cell);
+        name = "ghost";
         health = BASE_HEALTH;
         damage = BASE_DAMAGE;
     }

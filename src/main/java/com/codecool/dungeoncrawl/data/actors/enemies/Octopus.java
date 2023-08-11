@@ -8,8 +8,9 @@ public class Octopus extends Enemy {
     private static final int BASE_HEALTH = 20;
     private static final int BASE_DAMAGE = 9;
 
-    public Octopus(Cell cell, String name) {
-        super(cell, name);
+    public Octopus(Cell cell) {
+        super(cell);
+        name = "octopus";
         health = BASE_HEALTH;
         damage = BASE_DAMAGE;
     }

@@ -44,7 +44,7 @@ public class MapLoader {
                             break;
                         case 's':
                             cell.setType(CellType.FLOOR);
-                            map.EnemyManager.addEnemy(new Skeleton(cell, "skeleton"));
+                            map.EnemyManager.addEnemy(new Skeleton(cell));
                             break;
                         case 'k':
                             cell.setType(CellType.FLOOR);
@@ -92,15 +92,15 @@ public class MapLoader {
                             break;
                         case 'c':
                             cell.setType(CellType.FLOOR);
-                            map.EnemyManager.addEnemy(new Cow(cell, "cow"));
+                            map.EnemyManager.addEnemy(new Cow(cell));
                             break;
                         case 'o':
                             cell.setType(CellType.FLOOR);
-                            map.EnemyManager.addEnemy(new Octopus(cell, "octopus"));
+                            map.EnemyManager.addEnemy(new Octopus(cell));
                             break;
                         case 'g':
                             cell.setType(CellType.FLOOR);
-                            map.EnemyManager.addEnemy(new Ghost(cell, "ghost"));
+                            map.EnemyManager.addEnemy(new Ghost(cell));
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);

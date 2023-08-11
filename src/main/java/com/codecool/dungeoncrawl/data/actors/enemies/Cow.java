@@ -9,8 +9,9 @@ public class Cow extends Enemy {
     private static final int BASE_HEALTH = 15;
     private static final int BASE_DAMAGE = 5;
 
-    public Cow(Cell cell, String name) {
-        super(cell, name);
+    public Cow(Cell cell) {
+        super(cell);
+        name = "cow";
         health = BASE_HEALTH;
         damage = BASE_DAMAGE;
     }

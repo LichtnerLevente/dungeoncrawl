@@ -7,6 +7,7 @@ public class Cat extends Actor {
 
     public Cat(Cell cell) {
         super(cell);
+        name = "cat";
     }
 
     @Override

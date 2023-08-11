@@ -25,7 +25,8 @@ public abstract class Actor implements Drawable {
     public int getHealth() {
         return health;
     }
-    public void kill(){
+
+    public void kill() {
         cell.setActor(null);
     }
 
@@ -39,6 +40,14 @@ public abstract class Actor implements Drawable {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Cell getCell() {
@@ -58,10 +67,12 @@ public abstract class Actor implements Drawable {
         nextCell.setActor(this);
         cell = nextCell;
     }
+
     protected boolean checkIfValidTile(Cell cell) {
-         return cell.getTileName().equals("floor") && !cell.getType().equals(CellType.DOOR) && cell.getActor() == null;
+        return cell.getTileName().equals("floor") && !cell.getType().equals(CellType.DOOR) && cell.getActor() == null;
     }
-    public boolean isCat(){
+
+    public boolean isCat() {
         return false;
     }
 
