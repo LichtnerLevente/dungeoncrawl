@@ -3,11 +3,13 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 import com.codecool.dungeoncrawl.data.Cell;
 import java.util.Random;
 public class Ghost extends Enemy{
-    private int health = 6;
-    private int damage = 25;
+    private static final int BASE_HEALTH = 6;
+    private static final int BASE_DAMAGE = 25;
 
     public Ghost(Cell cell, String name) {
         super(cell, name);
+        health = BASE_HEALTH;
+        damage = BASE_DAMAGE;
     }
 
     @Override

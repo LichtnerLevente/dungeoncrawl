@@ -4,9 +4,6 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.actors.Actor;
 
 public abstract class Enemy extends Actor {
-    private String name;
-    private int damage = 25;
-
 
     public Enemy(Cell cell, String name) {
         super(cell);

@@ -6,12 +6,13 @@ import com.codecool.dungeoncrawl.data.items.Key;
 import java.util.Random;
 
 public class Cow extends Enemy {
-    private int health = 15;
-
-    private int damage = 5;
+    private static final int BASE_HEALTH = 15;
+    private static final int BASE_DAMAGE = 5;
 
     public Cow(Cell cell, String name) {
         super(cell, name);
+        health = BASE_HEALTH;
+        damage = BASE_DAMAGE;
     }
 
     @Override
@@ -31,8 +32,8 @@ public class Cow extends Enemy {
     @Override
     public void move() {
         Random random = new Random();
-        int randomDx = random.nextInt(3) -1;
-        int randomDy = random.nextInt(3) -1;
+        int randomDx = random.nextInt(3) - 1;
+        int randomDy = random.nextInt(3) - 1;
         super.move(randomDx, randomDy);
     }
 

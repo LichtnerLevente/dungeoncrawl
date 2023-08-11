@@ -3,12 +3,13 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 import com.codecool.dungeoncrawl.data.Cell;
 
 public class Skeleton extends Enemy {
-    private int health = 5;
-
-    private int damage = 2;
+    private static final int BASE_HEALTH = 5;
+    private static final int BASE_DAMAGE = 2;
 
     public Skeleton(Cell cell, String name) {
         super(cell, name);
+        health = BASE_HEALTH;
+        damage = BASE_DAMAGE;
     }
 
     @Override

@@ -9,7 +9,6 @@ import java.util.HashSet;
 
 public class Player extends Actor {
     private static final int BASE_HEALTH = 10;
-
     private static final int BASE_DAMAGE = 5;
 
     private final Inventory inventory = new InventoryImpl(new HashSet<>());
@@ -19,6 +18,7 @@ public class Player extends Actor {
 
     public Player(Cell cell) {
         super(cell);
+        name = "player";
         health = BASE_HEALTH;
         damage = BASE_DAMAGE;
     }
