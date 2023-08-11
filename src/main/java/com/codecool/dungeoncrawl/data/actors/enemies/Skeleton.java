@@ -12,17 +12,4 @@ public class Skeleton extends Enemy {
         damage = BASE_DAMAGE;
     }
 
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
 }

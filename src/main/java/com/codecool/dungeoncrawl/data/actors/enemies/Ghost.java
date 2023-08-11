@@ -12,19 +12,6 @@ public class Ghost extends Enemy{
         damage = BASE_DAMAGE;
     }
 
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
 
 //    @Override
 //    public void move(int dx, int dy) {

@@ -16,20 +16,6 @@ public class Cow extends Enemy {
     }
 
     @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    @Override
     public void move() {
         Random random = new Random();
         int randomDx = random.nextInt(3) - 1;

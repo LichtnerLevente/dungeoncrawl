@@ -97,16 +97,6 @@ public class Player extends Actor {
         this.prevCoord[0] = x;
         this.prevCoord[1] = y;
     }
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     public int[] getCurrrentCoord() {
         return currrentCoord;
     }
@@ -120,15 +110,6 @@ public class Player extends Actor {
     protected void moveToTile(Cell nextCell) {
         super.moveToTile(nextCell);
     }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     public Inventory getInventory() {
         return inventory;
     }
