@@ -46,10 +46,6 @@ public class Player extends Actor {
         }
     }
 
-    public String getTileName() {
-        return this.getCell().outOfRange() ? "fog" : "player";
-    }
-
     private void pickUpItem(Cell cell) {
         Item item = cell.getItem();
         inventory.add(item);

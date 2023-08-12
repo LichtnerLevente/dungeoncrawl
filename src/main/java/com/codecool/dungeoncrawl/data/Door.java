@@ -2,33 +2,29 @@ package com.codecool.dungeoncrawl.data;
 
 public class Door extends Cell {
     private final String key;
-    private String name;
-    private String type;
-    private String openVersion;
+    private final String tileName;
+    private boolean isOpen;
+    private final String openVersion;
 
 
     public Door(GameMap gameMap, int x, int y, CellType type, String key, String tileName, String openVersion) {
         super(gameMap, x, y, type);
         this.key = key;
-        this.name = tileName;
+        this.tileName = tileName;
         this.openVersion = openVersion;
+        this.isOpen = false;
     }
 
     public String getKey() {
         return this.key;
     }
-
-    private void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public String getTileName() {
-        return this.outOfRange() ? "fog" : this.name;
+        return this.outOfRange() ? "fog" : (isOpen ? openVersion : tileName);
     }
 
     public void setToOpen() {
-        this.setName(this.openVersion);
+        this.isOpen = true;
     }
 }
 
