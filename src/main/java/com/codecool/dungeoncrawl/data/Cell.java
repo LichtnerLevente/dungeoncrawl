@@ -8,7 +8,7 @@ import com.codecool.dungeoncrawl.logic.GameLogic;
 import static java.lang.Math.sqrt;
 
 public class Cell implements Drawable {
-    private CellType type;
+    protected CellType type;
     private Actor actor;
     private Item item;
     private final GameMap gameMap;

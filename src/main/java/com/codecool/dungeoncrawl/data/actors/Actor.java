@@ -72,7 +72,7 @@ public abstract class Actor implements Drawable {
     }
 
     protected boolean checkIfValidTile(Cell cell) {
-        return cell.getTileName().equals("floor") && !cell.getType().equals(CellType.DOOR) && cell.getActor() == null;
+        return cell.getType().isMovable() && cell.getActor() == null;
     }
 
     public boolean isCat() {

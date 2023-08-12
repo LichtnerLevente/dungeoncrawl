@@ -24,6 +24,7 @@ public class Door extends Cell {
     }
 
     public void setToOpen() {
+        this.setType(CellType.OPEN_DOOR);
         this.isOpen = true;
     }
 }
