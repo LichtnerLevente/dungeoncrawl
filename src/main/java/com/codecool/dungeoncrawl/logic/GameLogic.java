@@ -5,8 +5,8 @@ import com.codecool.dungeoncrawl.data.GameMap;
 
 public class GameLogic {
     private GameMap map;
-    private static final int baseVision = 2;
-    private static int visionRange = baseVision;
+    private static final int BASE_VISION = 2;
+    private static int visionRange = BASE_VISION;
     private boolean win = false;
     private boolean defeat = false;
 
@@ -24,7 +24,7 @@ public class GameLogic {
     }
 
     public void setup() {
-        visionRange = baseVision;
+        visionRange = BASE_VISION;
     }
 
     public Cell getCell(int x, int y) {
@@ -58,7 +58,7 @@ public class GameLogic {
     public void restart(){
         this.win=false;
         this.defeat=false;
-        visionRange = baseVision;
+        visionRange = BASE_VISION;
     }
 
     public void setMap(GameMap map) {
@@ -95,10 +95,10 @@ public class GameLogic {
     }
 
     public void isGameOver() {
-        if (this.getMap().getPlayer().getHealth() <= 0) {
+        if (map.getPlayer().getHealth() <= 0) {
             this.setDefeat(true);
         }
-        if (this.getMap().getPlayer().getInventory().contains("crown")) {
+        if (map.getPlayer().getInventory().contains("crown")) {
             this.setWin(true);
         }
     }

@@ -6,7 +6,7 @@ import com.codecool.dungeoncrawl.data.actors.Player;
 
 public class Octopus extends Enemy {
     private static final int BASE_HEALTH = 20;
-    private static final int BASE_DAMAGE = 9;
+    private static final int BASE_DAMAGE = 7;
 
     public Octopus(Cell cell) {
         super(cell);

@@ -20,7 +20,7 @@ public abstract class Enemy extends Actor {
     public void attack(Cell cell){
         Actor target = cell.getActor();
         if(target != null && !target.isCat()){
-            target.setHealth(target.getHealth() - 5);
+            target.setHealth(target.getHealth() - damage);
         }
     }
 }

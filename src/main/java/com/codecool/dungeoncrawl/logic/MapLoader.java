@@ -33,82 +33,75 @@ public class MapLoader {
                 if (x < line.length()) {
                     Cell cell = map.getCell(x, y);
                     switch (line.charAt(x)) {
-                        case ' ':
-                            cell.setType(CellType.EMPTY);
-                            break;
-                        case '#':
-                            cell.setType(CellType.WALL);
-                            break;
-                        case '.':
-                            cell.setType(CellType.FLOOR);
-                            break;
-                        case 's':
+                        case ' ' -> cell.setType(CellType.EMPTY);
+                        case '#' -> cell.setType(CellType.WALL);
+                        case '.' -> cell.setType(CellType.FLOOR);
+                        case 's' -> {
                             cell.setType(CellType.FLOOR);
                             map.EnemyManager.addEnemy(new Skeleton(cell));
-                            break;
-                        case 'k':
+                        }
+                        case 'k' -> {
                             cell.setType(CellType.FLOOR);
                             new Key(cell, "crown");
-                            break;
-                        case 'w':
+                        }
+                        case 'w' -> {
                             Door destructibleWall = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "pickaxe", "destructible_wall", "floor");
                             map.placeCell(destructibleWall);
-                            break;
-                        case 'u':
+                        }
+                        case 'u' -> {
                             Door door = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "monster_key", "door", "open_door");
                             map.placeCell(door);
-                            break;
-                        case 'f':
+                        }
+                        case 'f' -> {
                             cell.setType(CellType.FLOOR);
                             new Key(cell, "fish");
-                            break;
-                        case '1':
+                        }
+                        case '1' -> {
                             Door blue_door = new Door(map, cell.getX(), cell.getY(), CellType.DOOR, "blue_key", "blue_door", "blue_open_door");
                             map.placeCell(blue_door);
-                            break;
-                        case '2':
+                        }
+                        case '2' -> {
                             cell.setType(CellType.FLOOR);
                             new Key(cell, "blue_key");
-                            break;
-                        case 'p':
+                        }
+                        case 'p' -> {
                             cell.setType(CellType.FLOOR);
                             new Key(cell, "pickaxe");
-                            break;
-                        case 'r':
+                        }
+                        case 'r' -> {
                             cell.setType(CellType.FLOOR);
-                            new Tool(cell, "sword", () -> map.getPlayer().setDamage(100));
-                            break;
-                        case 'h':
+                            new Tool(cell, "sword", () -> map.getPlayer().setDamage(20));
+                        }
+                        case 'h' -> {
                             cell.setType(CellType.FLOOR);
-                            new Tool(cell, "shield", () -> map.getPlayer().setHealth(map.getPlayer().getHealth()+40));
-                            break;
-                        case 't':
+                            new Tool(cell, "shield", () -> map.getPlayer().setHealth(map.getPlayer().getHealth() + 20));
+                        }
+                        case 't' -> {
                             cell.setType(CellType.FLOOR);
                             new Tool(cell, "torch", () -> GameLogic.setVisionRange(7));
-                            break;
-                        case 'd':
+                        }
+                        case 'd' -> {
                             cell.setType(CellType.FLOOR);
                             map.setCat(new Cat(cell));
-                            break;
-                        case 'c':
+                        }
+                        case 'c' -> {
                             cell.setType(CellType.FLOOR);
                             map.EnemyManager.addEnemy(new Cow(cell));
-                            break;
-                        case 'o':
+                        }
+                        case 'o' -> {
                             cell.setType(CellType.FLOOR);
                             map.EnemyManager.addEnemy(new Octopus(cell));
-                            break;
-                        case 'g':
+                        }
+                        case 'g' -> {
                             cell.setType(CellType.FLOOR);
                             map.EnemyManager.addEnemy(new Ghost(cell));
-                            break;
-                        case '@':
+                        }
+                        case '@' -> {
                             cell.setType(CellType.FLOOR);
                             map.setPlayer(new Player(cell));
                             map.getPlayer().setCurrrentCoord(cell.getX(), cell.getY());
-                            break;
-                        default:
-                            throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
+                        }
+                        default -> throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
                     }
                 }
             }
