@@ -13,14 +13,9 @@ public abstract class Enemy extends Actor {
     public void move(){}
 
     @Override
-    public String getTileName() {
-        return this.getCell().outOfRange() ? "fog" : name;
-    }
-
-    @Override
     public void kill() {
         super.kill();
-        getCell().getGameMap().EnemyManager.removeEnemy((Enemy) this);
+        getCell().getGameMap().EnemyManager.removeEnemy(this);
     }
     public void attack(Cell cell){
         Actor target = cell.getActor();

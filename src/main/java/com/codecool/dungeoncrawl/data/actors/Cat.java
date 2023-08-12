@@ -10,11 +10,6 @@ public class Cat extends Actor {
         name = "cat";
     }
 
-    @Override
-    public String getTileName() {
-        return this.getCell().outOfRange() ? "fog" : "cat";
-    }
-
     void setShouldMove(boolean bool) {
         this.shouldMove = bool;
     }

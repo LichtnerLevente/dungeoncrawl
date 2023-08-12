@@ -21,7 +21,10 @@ public abstract class Actor implements Drawable {
             moveToTile(nextCell);
         }
     }
-
+    @Override
+    public String getTileName() {
+        return this.getCell().outOfRange() ? "fog" : name;
+    }
     public int getHealth() {
         return health;
     }
