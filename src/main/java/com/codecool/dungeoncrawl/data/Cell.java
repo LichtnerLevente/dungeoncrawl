@@ -63,6 +63,10 @@ public class Cell implements Drawable {
         return y;
     }
     private double getDistanceFromPlayer(){
+        Player player = getGameMap().getPlayer();
+        if(player == null){
+            return -1;
+        }
         double px = getGameMap().getPlayer().getCurrrentCoord()[0];
         double py = getGameMap().getPlayer().getCurrrentCoord()[1];
 
