@@ -3,7 +3,7 @@ package com.codecool.dungeoncrawl.data;
 import com.codecool.dungeoncrawl.data.actors.Actor;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.items.Item;
-import com.codecool.dungeoncrawl.logic.GameLogic;
+import com.codecool.dungeoncrawl.logic.GameLogic.GameLogic;
 
 import static java.lang.Math.sqrt;
 

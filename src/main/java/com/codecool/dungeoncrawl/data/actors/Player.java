@@ -3,6 +3,8 @@ package com.codecool.dungeoncrawl.data.actors;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.Door;
 import com.codecool.dungeoncrawl.data.items.*;
+import com.codecool.dungeoncrawl.logic.Inventory.Inventory;
+import com.codecool.dungeoncrawl.logic.Inventory.InventoryImpl;
 
 
 import java.util.HashSet;
@@ -22,6 +24,7 @@ public class Player extends Actor {
         health = BASE_HEALTH;
         damage = BASE_DAMAGE;
     }
+
 
     @Override
     public void move(int dx, int dy) {

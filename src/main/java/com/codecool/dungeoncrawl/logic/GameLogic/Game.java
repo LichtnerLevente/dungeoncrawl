@@ -1,13 +1,12 @@
-package com.codecool.dungeoncrawl.logic;
+package com.codecool.dungeoncrawl.logic.GameLogic;
 
+import com.codecool.dungeoncrawl.logic.GameLogic.GameLogic;
 import com.codecool.dungeoncrawl.ui.UI;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 import java.util.Set;
-
-import static javafx.scene.input.KeyCode.R;
 
 public class Game extends Application {
     private UI ui;

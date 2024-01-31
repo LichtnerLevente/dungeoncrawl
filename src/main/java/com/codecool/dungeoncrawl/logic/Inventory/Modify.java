@@ -1,4 +1,4 @@
-package com.codecool.dungeoncrawl.data.items;
+package com.codecool.dungeoncrawl.logic.Inventory;
 
 public interface Modify {
         void perform();

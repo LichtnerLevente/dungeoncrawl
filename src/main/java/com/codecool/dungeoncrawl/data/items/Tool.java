@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl.data.items;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.logic.Inventory.Modify;
 
 public class Tool extends  Item{
     private static final ItemType type = ItemType.TOOL;

@@ -3,6 +3,7 @@ package com.codecool.dungeoncrawl.data;
 import com.codecool.dungeoncrawl.data.actors.enemies.*;
 import com.codecool.dungeoncrawl.data.actors.Cat;
 import com.codecool.dungeoncrawl.data.actors.Player;
+import com.codecool.dungeoncrawl.logic.EnemyManager.EnemyManagerImpl;
 
 import java.util.Set;
 
@@ -15,7 +16,7 @@ public class GameMap {
 
     private Cat cat;
 
-    public EnemyManager EnemyManager;
+    public com.codecool.dungeoncrawl.logic.EnemyManager.EnemyManager EnemyManager;
 
     public GameMap(int width, int height, CellType defaultCellType, Set<Enemy> enemies) {
         EnemyManager = new EnemyManagerImpl(enemies);

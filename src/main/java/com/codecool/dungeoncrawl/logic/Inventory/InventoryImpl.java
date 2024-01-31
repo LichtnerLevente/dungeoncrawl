@@ -1,4 +1,6 @@
-package com.codecool.dungeoncrawl.data.items;
+package com.codecool.dungeoncrawl.logic.Inventory;
+
+import com.codecool.dungeoncrawl.data.items.Item;
 
 import java.util.Set;
 

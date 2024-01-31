@@ -1,4 +1,6 @@
-package com.codecool.dungeoncrawl.data.actors.enemies;
+package com.codecool.dungeoncrawl.logic.EnemyManager;
+
+import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
 
 import java.util.Set;
 

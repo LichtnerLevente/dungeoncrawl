@@ -1,8 +1,8 @@
 package com.codecool.dungeoncrawl.ui;
 
 import com.codecool.dungeoncrawl.data.Cell;
-import com.codecool.dungeoncrawl.logic.GameLogic;
-import com.codecool.dungeoncrawl.logic.MapLoader;
+import com.codecool.dungeoncrawl.logic.GameLogic.GameLogic;
+import com.codecool.dungeoncrawl.logic.GameLogic.MapLoader;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
 import com.codecool.dungeoncrawl.ui.elements.StatusPane;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
