@@ -18,7 +18,7 @@ The primary focus of the project was to improve our grasp on the SOLID principle
 
 2. Use an integrated development environment (IDE) such as [Visual Studio Code](https://code.visualstudio.com/) or [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
-  ### Running the Gameű
+  ### Running the Game
   
 3. Open the project in your chosen IDE.
 
